@@ -18,7 +18,9 @@ public class PlaneController : MonoBehaviour
 
 
 
-    float throttle, pitch, roll, yaw;
+    float throttle, pitch, yaw;
+
+    float rollAngle, pitchAngle, yawAngle = 0.0f;
 
     Rigidbody rb;
 
@@ -42,13 +44,11 @@ public class PlaneController : MonoBehaviour
     {
         pitchAction = InputSystem.actions.FindAction("pitch");
         yawAction = InputSystem.actions.FindAction("yaw");
-        rollAction = InputSystem.actions.FindAction("roll");
         throttleAction = InputSystem.actions.FindAction("throttle");
     }
 
     void handleInputs()
     {
-        roll = rollAction.ReadValue<float>();
         pitch = pitchAction.ReadValue<float>();
         yaw = yawAction.ReadValue<float>();
 
@@ -68,13 +68,43 @@ public class PlaneController : MonoBehaviour
         handleInputs();
     }
 
+    Quaternion calculatePlaneAngles()
+    {
+        // Arcade roll
+        rollAngle += -yaw * Time.deltaTime * responseModifier * 0.3f;
+        rollAngle = Mathf.Clamp(rollAngle, -60f, 69f);
+
+        // Arcade Pitch
+        pitchAngle += pitch * Time.deltaTime * responseModifier * 0.3f;
+        pitchAngle = Mathf.Clamp(pitchAngle, -80, 80);
+
+        // Arade Yaw
+        yawAngle += yaw * Time.deltaTime * responseModifier * 0.3f;
+
+        Debug.Log(rollAngle + " " + pitchAngle + " " + yawAngle);
+
+        if (yaw == 0)
+            rollAngle = Mathf.Lerp(rollAngle, 0f, Time.deltaTime * responseModifier * 0.02f);
+        if (pitch == 0)
+            pitchAngle = Mathf.Lerp(pitchAngle, 0f, Time.deltaTime * responseModifier * 0.02f);
+        
+        return Quaternion.Euler(pitchAngle, yawAngle, rollAngle);
+    }
+
     void FixedUpdate()
     {
         rb.AddForce(transform.forward * thrustMaximum * throttle);
-        rb.AddTorque(transform.up * yaw * responseModifier);
-        rb.AddTorque(transform.right * pitch * responseModifier);
-        rb.AddTorque(-transform.forward * roll * responseModifier);
 
-        rb.AddForce(Vector3.up * rb.linearVelocity.magnitude * lift);
+        transform.rotation = calculatePlaneAngles();
+
+        //upforce and gravity only when you're attempting to land
+        if (transform.position.y <= 10)
+        {
+            rb.useGravity = true;
+            rb.AddForce(Vector3.up * rb.linearVelocity.magnitude * lift);
+        } else
+        {
+            rb.useGravity = false;
+        }
     }
 }
