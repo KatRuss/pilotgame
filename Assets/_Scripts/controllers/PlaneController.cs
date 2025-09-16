@@ -24,7 +24,7 @@ public class PlaneController : MonoBehaviour
 
     Rigidbody rb;
 
-    InputAction pitchAction, rollAction, yawAction, throttleAction;
+    InputAction pitchAction, yawAction, throttleAction;
 
     float responseModifier
     {
@@ -72,11 +72,11 @@ public class PlaneController : MonoBehaviour
     {
         // Arcade roll
         rollAngle += -yaw * Time.deltaTime * responseModifier * 0.3f;
-        rollAngle = Mathf.Clamp(rollAngle, -60f, 69f);
+        rollAngle = Mathf.Clamp(rollAngle, -90f, 90f);
 
         // Arcade Pitch
         pitchAngle += pitch * Time.deltaTime * responseModifier * 0.3f;
-        pitchAngle = Mathf.Clamp(pitchAngle, -80, 80);
+        pitchAngle = Mathf.Clamp(pitchAngle, -90, 90);
 
         // Arade Yaw
         yawAngle += yaw * Time.deltaTime * responseModifier * 0.3f;
