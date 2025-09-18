@@ -11,6 +11,7 @@ public class LivePlayerData : ScriptableObject
     public float altitude;
     public float fuel;
     public float currentStallThrust;
+    public bool stalling;
 
     private void OnEnable()
     {
@@ -22,6 +23,8 @@ public class LivePlayerData : ScriptableObject
         throttle = 0.0f;
         altitude = 0.0f;
         fuel = 0.0f;
+        stalling = false;
+        currentStallThrust = 0.0f;
     }
 
 }

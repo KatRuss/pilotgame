@@ -1,107 +1,130 @@
-using System;
+using System.IO.Compression;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
 
 public class PlaneController : MonoBehaviour
 {
+    [SerializeField] PlaneObject plane;
+    [SerializeField] LivePlayerData livePlayerData;
 
+    // turn in this case is the combination of roll and yaw.
+    // yaw is what the player is controlling, roll is for visual effect.
+    float pitch, turn;
+    float rollAngle, pitchAngle, turnAngle = 0.0f;
+    float currentWeight;
+    float distanceToGround;
 
-    // plane thrust and control stats
-    public float throttleIncrement = 0.1f;
-    public float throttleMaximum = 100f;
-    public float thrustMaximum = 200f;
-    public float responsiveness = 10f;
-    public float lift = 135f;
-
-    // Fuel tank stats
-
-
-
-    float throttle, pitch, yaw;
-
-    float rollAngle, pitchAngle, yawAngle = 0.0f;
-
+    // The point being the heavier the plane the less responsive it is; 
+    float responseModifier = 0.0f;
+    
     Rigidbody rb;
+    InputAction pitchAction, turnAction, throttleAction;
 
-    InputAction pitchAction, yawAction, throttleAction;
-
-    float responseModifier
-    {
-        get
-        {
-            return rb.mass / 10f * responsiveness;
-        }
-    }
-
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         getInputActions();
+        livePlayerData.fuel = plane.getFuelMax();
     }
 
     void getInputActions()
     {
         pitchAction = InputSystem.actions.FindAction("pitch");
-        yawAction = InputSystem.actions.FindAction("yaw");
+        turnAction = InputSystem.actions.FindAction("yaw");
         throttleAction = InputSystem.actions.FindAction("throttle");
     }
 
     void handleInputs()
     {
         pitch = pitchAction.ReadValue<float>();
-        yaw = yawAction.ReadValue<float>();
+        turn = turnAction.ReadValue<float>();
 
 
         var throttleActionValue = throttleAction.ReadValue<float>();
         // Get Throttle
         if (throttleActionValue != 0)
         {
-            throttle += throttleIncrement * throttleActionValue;
-            throttle = Mathf.Clamp(throttle, 0f, throttleMaximum);
+            livePlayerData.throttle += plane.getAcceleration() * throttleActionValue;
+            livePlayerData.throttle = Mathf.Clamp(livePlayerData.throttle, 0f, 100f);
         }
     }
 
-    // Update is called once per frame
+    void setResponseModifier()
+    {
+        responseModifier = currentWeight / 10.0f * plane.getResponsiveness();
+
+    }
+
     void Update()
     {
+        //Update Values
+        currentWeight = plane.getTotalWeight(livePlayerData.fuel);
+        setResponseModifier();
+
+        //Modify Fuel
+        livePlayerData.fuel = plane.getNewFuelLevel(livePlayerData.fuel, livePlayerData.throttle);
+
+        if (livePlayerData.fuel <= 0 && !livePlayerData.stalling)
+            livePlayerData.stalling = true;
+            livePlayerData.currentStallThrust = rb.linearVelocity.magnitude;
+
+        if (livePlayerData.stalling)
+        {
+            livePlayerData.currentStallThrust = plane.getNewStallThrust(livePlayerData.currentStallThrust);
+        }
+
+        //Get Player Input
         handleInputs();
     }
 
     Quaternion calculatePlaneAngles()
     {
         // Arcade roll
-        rollAngle += -yaw * Time.deltaTime * responseModifier * 0.3f;
+        rollAngle += -turn * Time.deltaTime * responseModifier * 2f;
         rollAngle = Mathf.Clamp(rollAngle, -90f, 90f);
 
         // Arcade Pitch
-        pitchAngle += pitch * Time.deltaTime * responseModifier * 0.3f;
-        pitchAngle = Mathf.Clamp(pitchAngle, -90, 90);
+        pitchAngle += pitch * Time.deltaTime * responseModifier;
+        pitchAngle = Mathf.Clamp(pitchAngle, -80, 80);
 
         // Arade Yaw
-        yawAngle += yaw * Time.deltaTime * responseModifier * 0.3f;
+        turnAngle += turn * Time.deltaTime * responseModifier;
 
-        Debug.Log(rollAngle + " " + pitchAngle + " " + yawAngle);
-
-        if (yaw == 0)
-            rollAngle = Mathf.Lerp(rollAngle, 0f, Time.deltaTime * responseModifier * 0.02f);
+        if (turn == 0)
+            rollAngle = Mathf.Lerp(rollAngle, 0f, Time.deltaTime * responseModifier * 0.05f);
         if (pitch == 0)
             pitchAngle = Mathf.Lerp(pitchAngle, 0f, Time.deltaTime * responseModifier * 0.02f);
         
-        return Quaternion.Euler(pitchAngle, yawAngle, rollAngle);
+        return Quaternion.Euler(pitchAngle, turnAngle, rollAngle);
     }
 
     void FixedUpdate()
     {
-        rb.AddForce(transform.forward * thrustMaximum * throttle);
+        Debug.Log(rb.linearVelocity.magnitude);
 
-        transform.rotation = calculatePlaneAngles();
+        //DistanceToGround Check
+        RaycastHit groundHit;
+        if (Physics.Raycast(transform.position, Vector3.down, out groundHit, Mathf.Infinity))
+        {
+            Debug.DrawRay(transform.position, Vector3.down * groundHit.distance, Color.yellow);
+            distanceToGround = groundHit.distance;
+        }
+
+        rb.mass = currentWeight;
+
+        if (livePlayerData.fuel > 0)
+            rb.AddForce(transform.forward * plane.getThrustMaximum() * livePlayerData.throttle);
+        else
+            rb.AddForce(transform.forward * livePlayerData.currentStallThrust);
+
+        if (distanceToGround > 3)
+            transform.rotation = calculatePlaneAngles();
 
         //upforce and gravity only when you're attempting to land
-        if (transform.position.y <= 10)
+        if (distanceToGround <= 10 || rb.linearVelocity.magnitude <= 10)
         {
             rb.useGravity = true;
-            rb.AddForce(Vector3.up * rb.linearVelocity.magnitude * lift);
+            rb.AddForce(Vector3.up * rb.linearVelocity.magnitude * plane.getLift());
         } else
         {
             rb.useGravity = false;

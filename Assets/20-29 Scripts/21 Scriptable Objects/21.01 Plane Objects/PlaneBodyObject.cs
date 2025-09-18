@@ -7,7 +7,7 @@ public class PlaneBodyObject : ScriptableObject
     public float weight;
     public float responsiveness;
     public float lift;
-    public float stallThrust;
+    public float minimumStallThrust;
     public float stallThrustBurnRate;
     
 }
