@@ -21,5 +21,5 @@ public class PlaneEngineObject : ScriptableObject
     public float fuelBurnRate;
 
     [Tooltip("rate at which it burns fuels depending on speed")]
-    public float fuelBurnThrustRate;
+    public float fuelBurnThrottleRate;
 }

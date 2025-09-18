@@ -17,5 +17,5 @@ MonoBehaviour:
   thrustMaximum: 200
   accelerationForce: 0.1
   decelerationForce: 0.1
-  fuelBurnRate: 0
-  fuelBurnThrustRate: 0
+  fuelBurnRate: 5.48
+  fuelBurnThrottleRate: 0.01

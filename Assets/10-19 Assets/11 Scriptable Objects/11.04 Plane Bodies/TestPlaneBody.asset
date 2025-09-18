@@ -16,3 +16,5 @@ MonoBehaviour:
   weight: 250
   responsiveness: 3
   lift: 135
+  stallThrust: 50
+  stallThrustBurnRate: 0.01

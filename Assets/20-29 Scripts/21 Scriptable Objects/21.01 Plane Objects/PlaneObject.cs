@@ -42,4 +42,32 @@ public class PlaneObject : ScriptableObject
     {
         return planeBody.lift;
     }
+
+    public float getFuelMax()
+    {
+        return planeFuelTank.fuelMaximum;
+    }
+
+    public float getNewFuelLevel(float currentFuel, float currentThrottle)
+    {
+        return Mathf.Clamp(
+            currentFuel - ((planeEngine.fuelBurnRate + planeEngine.fuelBurnThrottleRate * currentThrottle) * Time.deltaTime),
+            0,
+            1000
+        );
+    }
+
+    public float getNewStallThrust(float currentStallThrust)
+    {
+        return Mathf.Clamp(
+            currentStallThrust - (planeBody.stallThrustBurnRate * Time.deltaTime),
+            0,
+            1000
+        );
+    }
+
+    public float getMaxStallThrust()
+    {
+        return planeBody.stallThrust;
+    }
 }

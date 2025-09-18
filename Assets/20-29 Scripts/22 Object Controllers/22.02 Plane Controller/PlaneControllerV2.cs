@@ -13,15 +13,12 @@ public class PlaneControllerV2 : MonoBehaviour
     float rollAngle, pitchAngle, turnAngle = 0.0f;
 
     float currentWeight;
-    float currentFuel;
     float distanceToGround;
 
 
     // The point being the heavier the plane the less responsive it is; 
     float responseModifier = 0.0f;
     
-
-
     Rigidbody rb;
     InputAction pitchAction, turnAction, throttleAction;
 
@@ -29,6 +26,8 @@ public class PlaneControllerV2 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         getInputActions();
+        livePlayerData.fuel = plane.getFuelMax();
+        livePlayerData.currentStallThrust = plane.getMaxStallThrust();
     }
 
     void getInputActions()
@@ -62,11 +61,17 @@ public class PlaneControllerV2 : MonoBehaviour
     void Update()
     {
         //Update Values
-        currentWeight = plane.getTotalWeight(currentFuel);
+        currentWeight = plane.getTotalWeight(livePlayerData.fuel);
         setResponseModifier();
 
+        //Modify Fuel
+        livePlayerData.fuel = plane.getNewFuelLevel(livePlayerData.fuel, livePlayerData.throttle);
+
+        if (livePlayerData.fuel <= 0)
+            livePlayerData.currentStallThrust = plane.getNewStallThrust(livePlayerData.currentStallThrust);
+
         //Get Player Input
-        handleInputs();
+            handleInputs();
     }
 
     Quaternion calculatePlaneAngles()
@@ -100,9 +105,14 @@ public class PlaneControllerV2 : MonoBehaviour
             distanceToGround = groundHit.distance;
         }
 
+
+
         rb.mass = currentWeight;
-        
-        rb.AddForce(transform.forward * plane.getThrustMaximum() * livePlayerData.throttle);
+
+        if (livePlayerData.fuel > 0)
+            rb.AddForce(transform.forward * plane.getThrustMaximum() * livePlayerData.throttle);
+        else
+            rb.AddForce(transform.forward * livePlayerData.currentStallThrust);
 
         if (distanceToGround > 3)
             transform.rotation = calculatePlaneAngles();
