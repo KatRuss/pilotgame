@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9abc758935634996a4ef96c09edb599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  activeMission: {fileID: 11400000, guid: f3763fa55bbac46ad9de95b123a4d25c, type: 2}
+  liveMissionData: {fileID: 11400000, guid: f3763fa55bbac46ad9de95b123a4d25c, type: 2}
   livePlayerData: {fileID: 11400000, guid: 1e7ed4d0bed52463184cb3a081b8f416, type: 2}
   playerObject: {fileID: 4194505084229930826, guid: c8292ee4af3da43ba8d8cf6eb9776f4e, type: 3}
   cameraObject: {fileID: 1966802670330547563, guid: c9e6661ad9df34b378897f42f4aec767, type: 3}

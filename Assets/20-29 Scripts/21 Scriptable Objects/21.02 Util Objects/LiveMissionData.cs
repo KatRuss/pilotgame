@@ -3,21 +3,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LiveMissionData", menuName = "LiveMissionData", order = 0)]
 public class LiveMissionData : ScriptableObject
 {
-    Mission activeMission;
+    public Mission activeMission;
 
-    public void setMission(Mission mission)
+    public int ringsPassed;
+
+    void OnEnable()
     {
-        activeMission = mission;
+        resetAllValues();
     }
 
-    public Transform getPlayerStart()
+    void resetAllValues()
     {
-        return activeMission.getPlayerStartingTransform();
+        ringsPassed = 0;
     }
-
-    public GameObject getMissionObject()
-    {
-        return activeMission.missionPrefab;
-    }
-
 }

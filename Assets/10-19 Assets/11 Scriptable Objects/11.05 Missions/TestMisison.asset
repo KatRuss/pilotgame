@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d910dcba50941758ae43dfcaafaf48, type: 3}
   m_Name: TestMisison
   m_EditorClassIdentifier: Assembly-CSharp::Mission
-  playerStartTransform: {fileID: 0}
+  missionPrefab: {fileID: 8189355626235400755, guid: 4005f382361584d2baea343d19c97fc2, type: 3}
+  primaryObjectives:
+  - {fileID: 11400000, guid: ec724e03753644de9b03760ea714f97f, type: 2}
+  secondaryObjectives: []

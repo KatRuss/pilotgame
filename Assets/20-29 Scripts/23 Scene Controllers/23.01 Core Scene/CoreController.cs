@@ -22,7 +22,7 @@ public class CoreController : MonoBehaviour
 
         // Load Mission Controller, give it the desired mission
         SceneManager.LoadScene("S-Mission-Controller", LoadSceneMode.Additive);
-        missionData.setMission(activeMission);
+        missionData.activeMission = activeMission;
 
         // Load Gameplay UI
         SceneManager.LoadScene("S-UI-Gameplay", LoadSceneMode.Additive);

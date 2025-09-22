@@ -1,9 +1,8 @@
-using Unity.Mathematics;
 using UnityEngine;
 
 public class MissionController : MonoBehaviour
 {
-    [SerializeField] LiveMissionData activeMission;
+    [SerializeField] LiveMissionData liveMissionData;
     [SerializeField] LivePlayerData livePlayerData;
 
     [SerializeField] GameObject playerObject;
@@ -16,15 +15,36 @@ public class MissionController : MonoBehaviour
         SpawnPlayer();
     }
 
+    void Update()
+    {
+        if (isMissionComplete())
+        {
+            Debug.Log("mission complete!");
+        }
+    }
+
     void SpawnLevelPrefab()
     {
-        Instantiate(activeMission.getMissionObject());
+        Instantiate(liveMissionData.activeMission.missionPrefab);
     }
 
     void SpawnPlayer()
     {
-        GameObject player = Instantiate(playerObject,activeMission.getPlayerStart().position,Quaternion.identity);
+        GameObject player = Instantiate(playerObject, liveMissionData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
         GameObject camera = Instantiate(cameraObject);
-        camera.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"),true);
+        camera.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"), true);
+    }
+
+    public bool isMissionComplete()
+    {
+        // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
+        foreach (Objective pObjective in liveMissionData.activeMission.primaryObjectives)
+        {
+            if (!pObjective.isObjectiveComplete(liveMissionData, livePlayerData))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
