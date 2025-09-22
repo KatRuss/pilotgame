@@ -100,8 +100,6 @@ public class PlaneController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(rb.linearVelocity.magnitude);
-
         //DistanceToGround Check
         RaycastHit groundHit;
         if (Physics.Raycast(transform.position, Vector3.down, out groundHit, Mathf.Infinity))
@@ -120,7 +118,7 @@ public class PlaneController : MonoBehaviour
         if (distanceToGround > 3)
             transform.rotation = calculatePlaneAngles();
 
-        //upforce and gravity only when you're attempting to land
+        //upforce and gravity only when you're either taking off or landing.
         if (distanceToGround <= 10 || rb.linearVelocity.magnitude <= 10)
         {
             rb.useGravity = true;

@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] Transform[] povs;
+    [SerializeField] List<Transform> povs;
     [SerializeField] float speed;
 
     int index = 0;
@@ -20,5 +22,14 @@ public class CameraController : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
         transform.forward = povs[index].forward;
+    }
+
+    public void addPov(Transform pov, bool moveToPov = false)
+    {
+        povs.Add(pov);
+        if (moveToPov)
+        {
+            index = povs.Count - 1;
+        }
     }
 }
