@@ -15,4 +15,5 @@ MonoBehaviour:
   missionPrefab: {fileID: 8189355626235400755, guid: 4005f382361584d2baea343d19c97fc2, type: 3}
   primaryObjectives:
   - {fileID: 11400000, guid: ec724e03753644de9b03760ea714f97f, type: 2}
+  - {fileID: 11400000, guid: 90d84baf2013e4aca817a7d0c84b37b4, type: 2}
   secondaryObjectives: []
