@@ -1,4 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
+using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MissionController : MonoBehaviour
 {
@@ -14,8 +18,10 @@ public class MissionController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnLevelPrefab();
-        SpawnPlayer();
+        List<int> instanceIDs = new List<int>();
+        instanceIDs.Add(SpawnLevelPrefab());
+        instanceIDs.AddRange(SpawnPlayer());
+        // Move Scene to mission manager
     }
 
     void Update()
@@ -26,16 +32,18 @@ public class MissionController : MonoBehaviour
         }
     }
 
-    void SpawnLevelPrefab()
+    int SpawnLevelPrefab()
     {
-        Instantiate(liveMissionData.activeMission.missionPrefab);
+        GameObject level = Instantiate(liveMissionData.activeMission.missionPrefab);
+        return level.GetInstanceID();
     }
 
-    void SpawnPlayer()
+    List<int> SpawnPlayer()
     {
         GameObject player = Instantiate(playerObject, liveMissionData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
         GameObject camera = Instantiate(cameraObject);
         camera.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"), true);
+        return new List<int> {player.GetInstanceID(), camera.GetInstanceID()};
     }
 
     void MissionCheck()

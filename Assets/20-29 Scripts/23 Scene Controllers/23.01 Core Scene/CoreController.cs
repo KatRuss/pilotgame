@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,25 +11,75 @@ public class CoreController : MonoBehaviour
     // Additionally, handles anything that must be 
 
     [SerializeField] LiveMissionData missionData;
+    [SerializeField] SharedInt levelToLoad; //Reference of what misison should be loaded.
     [SerializeField] Mission[] missions;
+
+    readonly string[] LevelScenes = { "S-Foxtail-Gameplay", "S-Mission-Controller", "S-UI-Gameplay" };
+    readonly string[] MenuScenes = { "S-Foxtail-MainMenu", "S-UI-MainMenu" };
+
+    int loadedLevel = -1;
+
 
     void Start()
     {
-        LoadGameScene(missions[0]);
+        LoadMainMenu();
+    }
+
+    private void Update()
+    {
+        // Level Loading
+        if (levelToLoad.value != loadedLevel)
+        {
+            if (levelToLoad.value == -1)
+            {
+                LoadMainMenu();
+            }
+            else
+            {
+                LoadGameScene(missions[levelToLoad.value]);
+            }
+            loadedLevel = levelToLoad.value;
+        }
+    }
+
+    void LoadSceneBatch(string[] sceneList)
+    {
+        foreach (string scene in sceneList)
+        {
+            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+        }
+    }
+
+    void UnloadSceneBatch(string[] sceneList)
+    {
+        foreach (string scene in sceneList)
+        {
+            if (SceneManager.GetSceneByName(scene).IsValid())
+            {
+                SceneManager.UnloadSceneAsync(scene);
+            }
+        }
+    }
+
+    void LoadMainMenu()
+    {
+        UnloadGameScene();
+        LoadSceneBatch(MenuScenes);
     }
 
     void LoadGameScene(Mission activeMission)
     {
-        // Load Map
-        SceneManager.LoadScene("S-Foxtail-Map", LoadSceneMode.Additive);
-
-        // Load Mission Controller, give it the desired mission
-        SceneManager.LoadScene("S-Mission-Controller", LoadSceneMode.Additive);
+        unloadMainMenu();
+        LoadSceneBatch(LevelScenes);
         missionData.activeMission = activeMission;
-
-        // Load Gameplay UI
-        SceneManager.LoadScene("S-UI-Gameplay", LoadSceneMode.Additive);
     }
 
-
+    void UnloadGameScene()
+    {
+        // If Scenes exist, you should unload them
+        UnloadSceneBatch(LevelScenes);
+        missionData.activeMission = null;
+    }
+    
+    void unloadMainMenu() { UnloadSceneBatch(MenuScenes); }
 }

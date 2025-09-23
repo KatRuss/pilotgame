@@ -8,12 +8,11 @@ public class SharedInt : ScriptableObject
     //Between different game object so they are not dependent on eachother. e.g. timers, 
 
     [SerializeField] int startingInt = 0;
-    int currentInt;
+    public int value;
 
-    public int value { get => currentInt; set => currentInt = value; }
 
-    void Awake() { ResetValue(); }
+    private void OnEnable() { ResetValue(); }
 
-    void ResetValue() { currentInt = startingInt; } 
+    void ResetValue() { value = startingInt; } 
 
 }
