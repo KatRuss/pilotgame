@@ -10,7 +10,6 @@ public class SharedInt : ScriptableObject
     [SerializeField] int startingInt = 0;
     public int value;
 
-
     private void OnEnable() { ResetValue(); }
 
     void ResetValue() { value = startingInt; } 

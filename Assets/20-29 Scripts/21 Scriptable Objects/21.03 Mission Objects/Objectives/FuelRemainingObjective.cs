@@ -4,14 +4,14 @@ using UnityEngine;
 public class FuelRemainingObjective : Objective {
     [SerializeField] int FuelRemaining;
 
-    public override bool isObjectiveComplete(LiveMissionData liveMissionData, LivePlayerData livePlayerData)
+    public override bool isObjectiveComplete(LiveData liveData)
     {
-        return livePlayerData.fuel >= FuelRemaining;
+        return liveData.fuel >= FuelRemaining && liveData.missionComplete;
     }
 
-    public override bool isObjectiveFailed(LiveMissionData liveMissionData, LivePlayerData livePlayerData)
+    public override bool isObjectiveFailed(LiveData liveData)
     {
-        return livePlayerData.fuel <= FuelRemaining;
+        return liveData.fuel <= FuelRemaining;
     }
 
     public override string getObjectiveString()

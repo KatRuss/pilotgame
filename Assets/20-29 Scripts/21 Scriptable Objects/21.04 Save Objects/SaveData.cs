@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SaveData", menuName = "SaveData")]
@@ -9,8 +10,13 @@ public class SaveData : ScriptableObject
         - Level Completion, was it completed and how many Merits did they get?
         - Options
     */
+    [SerializeField] MissionList[] missionsToTrack;
+    JsonObject saveFileLocation;
 
-    
+    public void saveDataToJson()
+    {
+        
+    }
 
 
 }

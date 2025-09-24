@@ -5,7 +5,7 @@ public class FuelGageController : MonoBehaviour
 {
 
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] LivePlayerData livePlayerData;
+    [SerializeField] LiveData livePlayerData;
 
     void Update()
     {

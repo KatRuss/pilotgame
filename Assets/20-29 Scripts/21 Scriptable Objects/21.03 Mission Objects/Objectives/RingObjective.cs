@@ -6,12 +6,12 @@ public class RingObjective : Objective
 
     [SerializeField] int NumRingsToPassThrough;
 
-    public override bool isObjectiveComplete(LiveMissionData liveMissionData, LivePlayerData livePlayerData)
+    public override bool isObjectiveComplete(LiveData liveData)
     {
-        return liveMissionData.ringsPassed >= NumRingsToPassThrough;
+        return liveData.ringsPassed >= NumRingsToPassThrough;
     }
 
-    public override bool isObjectiveFailed(LiveMissionData liveMissionData, LivePlayerData livePlayerData) { return false; }
+    public override bool isObjectiveFailed(LiveData liveData) { return false; }
 
     public override string getObjectiveString()
     {

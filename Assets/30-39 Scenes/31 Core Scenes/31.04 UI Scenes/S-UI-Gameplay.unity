@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f9d11968d944352b6564b73f50d17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  livePlayerData: {fileID: 11400000, guid: 1e7ed4d0bed52463184cb3a081b8f416, type: 2}
+  liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
 --- !u!114 &472509393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   text: {fileID: 610281918}
-  livePlayerData: {fileID: 11400000, guid: 1e7ed4d0bed52463184cb3a081b8f416, type: 2}
+  livePlayerData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
 --- !u!114 &1140365023
 MonoBehaviour:
   m_ObjectHideFlags: 0

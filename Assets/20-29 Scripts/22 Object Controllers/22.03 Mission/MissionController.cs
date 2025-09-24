@@ -6,13 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MissionController : MonoBehaviour
 {
-    [SerializeField] LiveMissionData liveMissionData;
-    [SerializeField] LivePlayerData livePlayerData;
+    [SerializeField] LiveData liveData;
     [SerializeField] GameObject playerObject;
     [SerializeField] GameObject cameraObject;
-
-    bool missionComplete = false;
-    bool missionFailed = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,49 +21,62 @@ public class MissionController : MonoBehaviour
 
     void Update()
     {
-        if (!missionFailed && !missionComplete)
+        if (!liveData.missionFailed && !liveData.missionComplete)
         {
-            MissionCheck();
+            PrimaryMissionCheck();
+            SecondaryMissionCheck();
         }
     }
 
     int SpawnLevelPrefab()
     {
-        GameObject level = Instantiate(liveMissionData.activeMission.missionPrefab);
+        GameObject level = Instantiate(liveData.activeMission.missionPrefab);
         return level.GetInstanceID();
     }
 
     List<int> SpawnPlayer()
     {
-        GameObject player = Instantiate(playerObject, liveMissionData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
+        GameObject player = Instantiate(playerObject, liveData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
         GameObject camera = Instantiate(cameraObject);
         camera.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"), true);
         return new List<int> {player.GetInstanceID(), camera.GetInstanceID()};
     }
 
-    void MissionCheck()
+    void PrimaryMissionCheck()
     {
         if (!isMissionFailed())
         {
             if (isMissionComplete())
             {
                 Debug.Log("mission success");
-                missionComplete = true;
+                liveData.missionComplete = true;
+                liveData.activeMission.primaryObjectiveCompleted = true;
             }
         }
         else
         {
             Debug.Log("mission failed");
-            missionFailed = true;
+            liveData.missionFailed = true;
+        }
+    }
+
+    void SecondaryMissionCheck()
+    {
+        for (int i = 0; i < liveData.activeMission.secondaryObjectives.Length; i++)
+        {
+            if (liveData.activeMission.secondaryObjectives[i].isObjectiveComplete(liveData))
+            {
+                liveData.activeMission.secondayObjectivesCompleted[i] = true;
+            }
         }
     }
 
     public bool isMissionFailed()
     {
         // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
-        foreach (Objective pObjective in liveMissionData.activeMission.primaryObjectives)
+        foreach (Objective pObjective in liveData.activeMission.primaryObjectives)
         {
-            if (pObjective.isObjectiveFailed(liveMissionData, livePlayerData))
+            if (pObjective.isObjectiveFailed(liveData))
             {
                 return true;
             }
@@ -78,9 +87,9 @@ public class MissionController : MonoBehaviour
     public bool isMissionComplete()
     {
         // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
-        foreach (Objective pObjective in liveMissionData.activeMission.primaryObjectives)
+        foreach (Objective pObjective in liveData.activeMission.primaryObjectives)
         {
-            if (!pObjective.isObjectiveComplete(liveMissionData, livePlayerData))
+            if (!pObjective.isObjectiveComplete(liveData))
             {
                 return false;
             }

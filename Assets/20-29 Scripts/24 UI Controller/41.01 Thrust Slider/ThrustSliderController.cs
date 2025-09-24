@@ -4,17 +4,17 @@ using UnityEngine.UI;
 public class ThrustSliderController : MonoBehaviour
 {
 
-    [SerializeField] LivePlayerData livePlayerData;
+    [SerializeField] LiveData liveData;
     Slider slider;
 
     void setThrottleUI()
     {
-        slider.value = livePlayerData.throttle;
+        slider.value = liveData.throttle;
     }
 
     public void onSliderChange()
     {
-        livePlayerData.throttle = slider.value;
+        liveData.throttle = slider.value;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,7 +27,7 @@ public class ThrustSliderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (slider.value != livePlayerData.throttle)
+        if (slider.value != liveData.throttle)
         {
             setThrottleUI();
         }   

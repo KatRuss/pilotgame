@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaneControllerV2
   plane: {fileID: 11400000, guid: 0c9bedd9dceb84b8ba5335c1f024798d, type: 2}
-  livePlayerData: {fileID: 11400000, guid: 1e7ed4d0bed52463184cb3a081b8f416, type: 2}
+  liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
 --- !u!1 &5777961677066458487
 GameObject:
   m_ObjectHideFlags: 0

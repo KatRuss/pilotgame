@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class PlaneController : MonoBehaviour
 {
     [SerializeField] PlaneObject plane;
-    [SerializeField] LivePlayerData livePlayerData;
+    [SerializeField] LiveData liveData;
 
     // turn in this case is the combination of roll and yaw.
     // yaw is what the player is controlling, roll is for visual effect.
@@ -24,7 +24,7 @@ public class PlaneController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         getInputActions();
-        livePlayerData.fuel = plane.getFuelMax();
+        liveData.fuel = plane.getFuelMax();
     }
 
     void getInputActions()
@@ -44,8 +44,8 @@ public class PlaneController : MonoBehaviour
         // Get Throttle
         if (throttleActionValue != 0)
         {
-            livePlayerData.throttle += plane.getAcceleration() * throttleActionValue;
-            livePlayerData.throttle = Mathf.Clamp(livePlayerData.throttle, 0f, 100f);
+            liveData.throttle += plane.getAcceleration() * throttleActionValue;
+            liveData.throttle = Mathf.Clamp(liveData.throttle, 0f, 100f);
         }
     }
 
@@ -58,20 +58,23 @@ public class PlaneController : MonoBehaviour
     void Update()
     {
         //Update Values
-        currentWeight = plane.getTotalWeight(livePlayerData.fuel);
+        currentWeight = plane.getTotalWeight(liveData.fuel);
         setResponseModifier();
 
         //Modify Fuel
-        livePlayerData.fuel = plane.getNewFuelLevel(livePlayerData.fuel, livePlayerData.throttle);
+        liveData.fuel = plane.getNewFuelLevel(liveData.fuel, liveData.throttle);
 
-        if (livePlayerData.fuel <= 0 && !livePlayerData.stalling)
-            livePlayerData.stalling = true;
-            livePlayerData.currentStallThrust = rb.linearVelocity.magnitude;
+        if (liveData.fuel <= 0 && !liveData.planeStalling)
+            liveData.planeStalling = true;
+            liveData.currentStallThrust = rb.linearVelocity.magnitude;
 
-        if (livePlayerData.stalling)
+        if (liveData.planeStalling)
         {
-            livePlayerData.currentStallThrust = plane.getNewStallThrust(livePlayerData.currentStallThrust);
+            liveData.currentStallThrust = plane.getNewStallThrust(liveData.currentStallThrust);
         }
+
+        // Modify Altitude
+        liveData.altitude = transform.position.y;
 
         //Get Player Input
         handleInputs();
@@ -110,10 +113,10 @@ public class PlaneController : MonoBehaviour
 
         rb.mass = currentWeight;
 
-        if (livePlayerData.fuel > 0)
-            rb.AddForce(transform.forward * plane.getThrustMaximum() * livePlayerData.throttle);
+        if (liveData.fuel > 0)
+            rb.AddForce(transform.forward * plane.getThrustMaximum() * liveData.throttle);
         else
-            rb.AddForce(transform.forward * livePlayerData.currentStallThrust);
+            rb.AddForce(transform.forward * liveData.currentStallThrust);
 
         if (distanceToGround > 3)
             transform.rotation = calculatePlaneAngles();

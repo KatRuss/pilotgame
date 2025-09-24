@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Xml.Serialization;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,9 +6,9 @@ public class CoreController : MonoBehaviour
     // Handles loading scenes, destorying them, and exiting out of the game
     // Additionally, handles anything that must be 
 
-    [SerializeField] LiveMissionData missionData;
+    [SerializeField] LiveData liveData;
     [SerializeField] SharedInt levelToLoad; //Reference of what misison should be loaded.
-    [SerializeField] MissionLevelInfo[] missions;
+    [SerializeField] MissionList missionList;
 
     readonly string[] LevelScenes = { "S-Foxtail-Gameplay", "S-Mission-Controller", "S-UI-Gameplay" };
     readonly string[] MenuScenes = { "S-Foxtail-MainMenu", "S-UI-MainMenu" };
@@ -36,7 +32,7 @@ public class CoreController : MonoBehaviour
             }
             else
             {
-                LoadGameScene(missions[levelToLoad.value]);
+                LoadGameScene(missionList.missions[levelToLoad.value]);
             }
             loadedLevel = levelToLoad.value;
         }
@@ -67,19 +63,19 @@ public class CoreController : MonoBehaviour
         LoadSceneBatch(MenuScenes);
     }
 
-    void LoadGameScene(MissionLevelInfo activeMission)
+    void LoadGameScene(Mission activeMission)
     {
-        unloadMainMenu();
+        UnloadMainMenu();
         LoadSceneBatch(LevelScenes);
-        missionData.activeMission = activeMission;
+        liveData.activeMission = activeMission;
     }
 
     void UnloadGameScene()
     {
         // If Scenes exist, you should unload them
         UnloadSceneBatch(LevelScenes);
-        missionData.activeMission = null;
+        liveData.activeMission = null;
     }
     
-    void unloadMainMenu() { UnloadSceneBatch(MenuScenes); }
+    void UnloadMainMenu() { UnloadSceneBatch(MenuScenes); }
 }

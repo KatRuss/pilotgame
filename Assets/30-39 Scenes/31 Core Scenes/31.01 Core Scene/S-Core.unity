@@ -163,41 +163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ac68a1a50b24d6488f12072308070a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoreController
-  missionData: {fileID: 11400000, guid: f3763fa55bbac46ad9de95b123a4d25c, type: 2}
-  missions:
-  - {fileID: 11400000, guid: 691277607aa03429db3ad38b18472945, type: 2}
+  liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
   levelToLoad: {fileID: 11400000, guid: 18cf4f7baf26b47baa18ea66f59ebda2, type: 2}
---- !u!1 &654696845
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 654696846}
-  m_Layer: 0
-  m_Name: == CORE ==
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &654696846
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654696845}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.7219, y: 0, z: 24.56297}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  missionList: {fileID: 11400000, guid: eef8d0714c8ee4a428f57ab9f0dba956, type: 2}
 --- !u!1 &1190307757
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +249,5 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 654696846}
   - {fileID: 217295018}
   - {fileID: 1190307760}
