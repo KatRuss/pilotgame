@@ -8,7 +8,6 @@ public class MissionController : MonoBehaviour
 {
     [SerializeField] LiveMissionData liveMissionData;
     [SerializeField] LivePlayerData livePlayerData;
-
     [SerializeField] GameObject playerObject;
     [SerializeField] GameObject cameraObject;
 
@@ -18,10 +17,10 @@ public class MissionController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Spawn Player and level items
         List<int> instanceIDs = new List<int>();
         instanceIDs.Add(SpawnLevelPrefab());
         instanceIDs.AddRange(SpawnPlayer());
-        // Move Scene to mission manager
     }
 
     void Update()

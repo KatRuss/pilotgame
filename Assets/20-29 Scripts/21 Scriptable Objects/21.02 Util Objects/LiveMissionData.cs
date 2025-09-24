@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "LiveMissionData", menuName = "LiveMissionData", order = 0)]
 public class LiveMissionData : ScriptableObject
 {
-    public Mission activeMission;
+    public MissionLevelInfo activeMission;
 
     public int ringsPassed;
 

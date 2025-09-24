@@ -22,9 +22,9 @@ public class MainMenuController : MonoBehaviour
 
     void Update()
     {
-        menuOnCenter.transform.position = Vector3.Lerp(menuOnCenter.transform.position, new Vector3(0, 0, 0), menuSpeed * Time.deltaTime);
-        menuOnLeft.transform.position = Vector3.Lerp(menuOnLeft.transform.position, leftPoint.position, menuSpeed * Time.deltaTime);
-        menuOnRight.transform.position = Vector3.Lerp(menuOnRight.transform.position, rightPoint.position, menuSpeed * Time.deltaTime);
+        //menuOnCenter.transform.position = Vector3.Lerp(menuOnCenter.transform.position, new Vector3(0, 0, 0), menuSpeed * Time.deltaTime);
+        //menuOnLeft.transform.position = Vector3.Lerp(menuOnLeft.transform.position, leftPoint.position, menuSpeed * Time.deltaTime);
+        //menuOnRight.transform.position = Vector3.Lerp(menuOnRight.transform.position, rightPoint.position, menuSpeed * Time.deltaTime);
     }
 
     public void SetLevelToLoad(int levelID)

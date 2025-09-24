@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 2034089479}
   - component: {fileID: 2034089478}
   - component: {fileID: 2034089477}
+  - component: {fileID: 2034089480}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -431,13 +432,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034089476}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26712298, y: 0.32791018, z: -0.097224794, w: 0.900926}
+  m_LocalRotation: {x: 0, y: 0.3420201, z: 0, w: 0.9396927}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 33.03, y: 40, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 40, z: 0}
+--- !u!114 &2034089480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034089476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6532e56dab4c246668a3dd1db499799a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SunLightingController
+  missionData: {fileID: 11400000, guid: f3763fa55bbac46ad9de95b123a4d25c, type: 2}
 --- !u!1001 &2193931536460723217
 PrefabInstance:
   m_ObjectHideFlags: 0
