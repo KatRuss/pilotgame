@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5357f780381f3486ea2510988b4e93ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  liveMissionData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
+  liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
 --- !u!1 &5590732116055251626
 GameObject:
   m_ObjectHideFlags: 0

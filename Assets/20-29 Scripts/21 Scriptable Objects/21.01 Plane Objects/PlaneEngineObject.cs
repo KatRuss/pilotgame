@@ -2,11 +2,9 @@ using UnityEditor.EditorTools;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Plane Engine", menuName = "Plane/Plane Engine", order = 0)]
-public class PlaneEngineObject : ScriptableObject
+public class PlaneEngineObject : PlanePart
 {
     /* This object contains the engine stats attached to a given plane. Thrust, increments, etc. */
-    public string engineMenuName;
-    public float weight;
 
     [Tooltip("The maximum thrust the engine can supply to the plane")]
     public float thrustMaximum;

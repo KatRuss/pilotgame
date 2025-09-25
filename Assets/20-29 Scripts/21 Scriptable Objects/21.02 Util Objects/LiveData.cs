@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LiveData", menuName = "LiveData", order = 0)]
@@ -9,6 +8,13 @@ public class LiveData : ScriptableObject
 
     [Header("Player Data")]
     public float throttle;
+    // turn in this case is the combination of roll and yaw.
+    // yaw is what the player is controlling, roll is for visual effect.
+    [Tooltip("The Combination of pitch and yaw. Yaw is what the player is controlling.")]
+    public float turn;
+    public float pitch;
+    public float currentWeight;
+    public float distanceToGround;
     public float altitude;
     public float fuel;
     public float currentStallThrust;
@@ -24,6 +30,9 @@ public class LiveData : ScriptableObject
 
     [Header("Game Data")]
     public bool gameIsPaused;
+
+    [Header("Progression System")]
+    public int merits;
 
     private void OnEnable()
     {
@@ -41,6 +50,10 @@ public class LiveData : ScriptableObject
     void resetPlayerData()
     {
         throttle = 0.0f;
+        turn = 0.0f;
+        pitch = 0.0f;
+        currentWeight = 0.0f;
+        distanceToGround = 0.0f;
         altitude = 0.0f;
         fuel = 0.0f;
         planeStalling = false;
@@ -57,5 +70,6 @@ public class LiveData : ScriptableObject
     void resetObjectiveData()
     {
         ringsPassed = 0;
+        merits = 0;
     }
 }

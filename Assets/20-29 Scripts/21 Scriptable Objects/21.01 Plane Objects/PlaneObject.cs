@@ -20,7 +20,7 @@ public class PlaneObject : ScriptableObject
     {
         return planeEngine.weight +
                 planeBody.weight +
-                planeFuelTank.baseWeight +
+                planeFuelTank.weight +
                 (planeFuelTank.fuelWeightPerLitre * currentFuel);
     }
     public float getResponsiveness()

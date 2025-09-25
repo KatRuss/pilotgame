@@ -7,12 +7,7 @@ public class PlaneController : MonoBehaviour
     [SerializeField] PlaneObject plane;
     [SerializeField] LiveData liveData;
 
-    // turn in this case is the combination of roll and yaw.
-    // yaw is what the player is controlling, roll is for visual effect.
-    float pitch, turn;
     float rollAngle, pitchAngle, turnAngle = 0.0f;
-    float currentWeight;
-    float distanceToGround;
 
     // The point being the heavier the plane the less responsive it is; 
     float responseModifier = 0.0f;
@@ -36,8 +31,8 @@ public class PlaneController : MonoBehaviour
 
     void handleInputs()
     {
-        pitch = pitchAction.ReadValue<float>();
-        turn = turnAction.ReadValue<float>();
+        liveData.pitch = pitchAction.ReadValue<float>();
+        liveData.turn = turnAction.ReadValue<float>();
 
 
         var throttleActionValue = throttleAction.ReadValue<float>();
@@ -51,14 +46,14 @@ public class PlaneController : MonoBehaviour
 
     void setResponseModifier()
     {
-        responseModifier = currentWeight / 10.0f * plane.getResponsiveness();
+        responseModifier = liveData.currentWeight / 10.0f * plane.getResponsiveness();
 
     }
 
     void Update()
     {
         //Update Values
-        currentWeight = plane.getTotalWeight(liveData.fuel);
+        liveData.currentWeight = plane.getTotalWeight(liveData.fuel);
         setResponseModifier();
 
         //Modify Fuel
@@ -83,19 +78,19 @@ public class PlaneController : MonoBehaviour
     Quaternion calculatePlaneAngles()
     {
         // Arcade roll
-        rollAngle += -turn * Time.deltaTime * responseModifier * 2f;
+        rollAngle += -liveData.turn * Time.deltaTime * responseModifier * 2f;
         rollAngle = Mathf.Clamp(rollAngle, -90f, 90f);
 
         // Arcade Pitch
-        pitchAngle += pitch * Time.deltaTime * responseModifier;
+        pitchAngle += liveData.pitch * Time.deltaTime * responseModifier;
         pitchAngle = Mathf.Clamp(pitchAngle, -80, 80);
 
         // Arade Yaw
-        turnAngle += turn * Time.deltaTime * responseModifier;
+        turnAngle += liveData.turn * Time.deltaTime * responseModifier;
 
-        if (turn == 0)
+        if (liveData.turn == 0)
             rollAngle = Mathf.Lerp(rollAngle, 0f, Time.deltaTime * responseModifier * 0.05f);
-        if (pitch == 0)
+        if (liveData.pitch == 0)
             pitchAngle = Mathf.Lerp(pitchAngle, 0f, Time.deltaTime * responseModifier * 0.02f);
         
         return Quaternion.Euler(pitchAngle, turnAngle, rollAngle);
@@ -108,21 +103,21 @@ public class PlaneController : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out groundHit, Mathf.Infinity))
         {
             Debug.DrawRay(transform.position, Vector3.down * groundHit.distance, Color.yellow);
-            distanceToGround = groundHit.distance;
+            liveData.distanceToGround = groundHit.distance;
         }
 
-        rb.mass = currentWeight;
+        rb.mass =liveData.currentWeight;
 
         if (liveData.fuel > 0)
             rb.AddForce(transform.forward * plane.getThrustMaximum() * liveData.throttle);
         else
             rb.AddForce(transform.forward * liveData.currentStallThrust);
 
-        if (distanceToGround > 3)
+        if (liveData.distanceToGround > 3)
             transform.rotation = calculatePlaneAngles();
 
         //upforce and gravity only when you're either taking off or landing.
-        if (distanceToGround <= 10 || rb.linearVelocity.magnitude <= 10)
+        if (liveData.distanceToGround <= 10 || rb.linearVelocity.magnitude <= 10)
         {
             rb.useGravity = true;
             rb.AddForce(Vector3.up * rb.linearVelocity.magnitude * plane.getLift());
