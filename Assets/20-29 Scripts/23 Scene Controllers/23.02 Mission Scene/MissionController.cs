@@ -15,6 +15,8 @@ public class MissionController : MonoBehaviour
         instanceIDs.AddRange(SpawnPlayer());
 
         //TODO: Move game objects to their own temp scene.
+
+        liveData.throttle = liveData.activeMission.startingThrottle;
     }
 
     void Update()
@@ -24,6 +26,8 @@ public class MissionController : MonoBehaviour
             PrimaryMissionCheck();
             SecondaryMissionCheck();
         }
+
+        liveData.timer += Time.deltaTime;
     }
 
 

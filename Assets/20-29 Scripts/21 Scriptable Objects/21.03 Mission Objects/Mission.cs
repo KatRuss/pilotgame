@@ -11,14 +11,19 @@ public enum TimeOfDay
 [CreateAssetMenu(fileName = "Mission", menuName = "Mission/Mission", order = 0)]
 public class Mission : ScriptableObject
 {
-    [Header("Level Information")]
+    [Header("Level Info")]
     public GameObject missionPrefab;
     public TimeOfDay timeOfDay;
+    
+    [Header("Player Overides")]
+    [Range(0.0f, 100.0f)] public float startingThrottle = 0.0f;
+
+    [Header("Mission Info")]
     public Objective[] primaryObjectives;
     public Objective[] secondaryObjectives;
 
-    [Header("Progression Info")]
 
+    [Header("Progression Info")]
     public bool[] primaryObjectiveCompleted = new bool[3];
     public bool[] secondayObjectivesCompleted = new bool[3];
     public bool[] secondaryObjectivesFailed = new bool[3];

@@ -24,6 +24,7 @@ public class LiveData : ScriptableObject
     public Mission activeMission;
     public bool missionComplete;
     public bool missionFailed;
+    public float timer;
 
     [Header("Objective Data")]
     public int ringsPassed;
