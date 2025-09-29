@@ -13,6 +13,8 @@ public class MissionController : MonoBehaviour
         List<int> instanceIDs = new List<int>();
         instanceIDs.Add(SpawnLevelPrefab());
         instanceIDs.AddRange(SpawnPlayer());
+
+        //TODO: Move game objects to their own temp scene.
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class MissionController : MonoBehaviour
             SecondaryMissionCheck();
         }
     }
+
 
     int SpawnLevelPrefab()
     {
@@ -40,29 +43,38 @@ public class MissionController : MonoBehaviour
 
     void PrimaryMissionCheck()
     {
-        if (!isMissionFailed())
+        for (int i = 0; i < liveData.activeMission.primaryObjectives.Length; i++)
         {
-            if (isMissionComplete())
+            if (!isMissionFailed())
             {
-                Debug.Log("mission success");
-                liveData.missionComplete = true;
-                liveData.activeMission.primaryObjectiveCompleted = true;
+                if (isMissionComplete())
+                {
+                    liveData.missionComplete = true;
+                }
+            }
+            else
+            {
+                Debug.Log("mission failed");
+                liveData.missionFailed = true;
             }
         }
-        else
-        {
-            Debug.Log("mission failed");
-            liveData.missionFailed = true;
-        }
+
     }
 
     void SecondaryMissionCheck()
     {
         for (int i = 0; i < liveData.activeMission.secondaryObjectives.Length; i++)
         {
-            if (liveData.activeMission.secondaryObjectives[i].isObjectiveComplete(liveData))
+            if (!liveData.activeMission.secondaryObjectives[i].isObjectiveFailed(liveData))
             {
-                liveData.activeMission.secondayObjectivesCompleted[i] = true;
+                if (liveData.activeMission.secondaryObjectives[i].isObjectiveComplete(liveData) && !liveData.activeMission.secondaryObjectivesFailed[i])
+                {
+                    liveData.activeMission.secondayObjectivesCompleted[i] = true;
+                }
+            }
+            else
+            {
+                liveData.activeMission.secondaryObjectivesFailed[i] = true;
             }
         }
     }

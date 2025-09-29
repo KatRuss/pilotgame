@@ -7,6 +7,10 @@ public abstract class Objective : ScriptableObject
     public abstract string getObjectiveString();
 
     // If there is a specific fail condition that is different then non-completion.
-    public abstract bool isObjectiveFailed(LiveData liveData);
+    // Default: return false, assuming there is no explicit failure condition.
+    public virtual bool isObjectiveFailed(LiveData liveData)
+    {
+        return false;
+    }
 
 }
