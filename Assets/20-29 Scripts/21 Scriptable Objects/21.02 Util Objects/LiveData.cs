@@ -68,6 +68,7 @@ public class LiveData : ScriptableObject
         activeMission = null;
         missionComplete = false;
         missionFailed = false;
+        timer = 0.0f;
     }
 
     void resetObjectiveData()

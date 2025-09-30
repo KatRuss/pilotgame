@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb805f7c029f4b749961532920ab372, type: 3}
   m_Name: TestPlaneTank
   m_EditorClassIdentifier: Assembly-CSharp::PlaneFuelTankObject
-  tankName: tank
-  baseWeight: 25
+  partName: 
+  weight: 0
   fuelMaximum: 100
-  fuelWeightPerLitre: 0.2
+  fuelWeightPerLitre: 0.5

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac0eacd08a4446229d255d0582003fb, type: 3}
   m_Name: TestAltitudeObjective
   m_EditorClassIdentifier: Assembly-CSharp::AltitudeObjective
-  altitudeType: 0
-  desiredAltitude: 0
-  warningBufferSeconds: 0
-  failed: 0
+  altitudeType: 1
+  desiredAltitude: 200
+  warningBufferSeconds: 5
