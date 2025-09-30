@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlaneObject
   planeName: 
   planeBody: {fileID: 11400000, guid: 3c98f0cf15f7c4b80a396af9f13ae618, type: 2}
-  planeEngine: {fileID: 11400000, guid: 3ded5f04fa3fa47f28ec388d63414807, type: 2}
+  planeEngine: {fileID: 11400000, guid: 33c921c447b954bafb339122ef1afd4b, type: 2}
   planeFuelTank: {fileID: 11400000, guid: 2fd32016ffb064b8787dd70cef7d8d6b, type: 2}

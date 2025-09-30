@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac14a76ac32e540ff9f43667979c271e, type: 3}
   m_Name: TestPlaneBody
   m_EditorClassIdentifier: Assembly-CSharp::PlaneBodyObject
-  modelMenuName: planebody
+  partName: 
   weight: 250
+  modelMenuName: planebody
   responsiveness: 3
   lift: 135
-  minimumStallThrust: 200
+  minimumStallThrust: 400
   stallThrustBurnRate: 0.00001

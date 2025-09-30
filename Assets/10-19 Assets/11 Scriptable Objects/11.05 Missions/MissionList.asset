@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdc91c528e3c3493bae961d4df38c635, type: 3}
   m_Name: MissionList
   m_EditorClassIdentifier: Assembly-CSharp::MissionList
-  missions: []
+  missions:
+  - {fileID: 11400000, guid: 8224ebd35d8d147db9f9a6faf9846141, type: 2}
+  - {fileID: 11400000, guid: 74669032584264df0960053758b23fda, type: 2}
+  - {fileID: 11400000, guid: 3706325960f8e43f9a0b2f0330f9664c, type: 2}
+  - {fileID: 11400000, guid: 4a3ee9b9a4c2e430a9b087d732e0af75, type: 2}
+  - {fileID: 11400000, guid: 673d9e733bc45451eb8b842a72944f9f, type: 2}
+  - {fileID: 11400000, guid: cc7079d7052dc48d38af9b8cb434d8ef, type: 2}
