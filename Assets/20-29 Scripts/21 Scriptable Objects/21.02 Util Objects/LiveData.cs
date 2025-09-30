@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "LiveData", menuName = "LiveData", order = 0)]
 public class LiveData : ScriptableObject
@@ -37,6 +38,15 @@ public class LiveData : ScriptableObject
 
     [Header("Progression System")]
     public int merits;
+
+    [Header("MessageBox Info")]
+    public string headerToShow;
+    [TextArea(2, 2)] public string messageToShow;
+
+    [Header("UI Info")]
+    public bool showUI;
+    public bool showFuel;
+    public bool showTimer;
 
     private void OnEnable()
     {
