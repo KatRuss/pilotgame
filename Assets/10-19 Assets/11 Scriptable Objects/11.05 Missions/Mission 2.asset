@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d20cf1efaa8d44c29f27bbb8c2ab42b, type: 3}
-  m_Name: TestMisison
+  m_Name: Mission 2
   m_EditorClassIdentifier: Assembly-CSharp::Mission
-  missionPrefab: {fileID: 8189355626235400755, guid: 4005f382361584d2baea343d19c97fc2, type: 3}
+  missionPrefab: {fileID: 0}
   timeOfDay: 20
   startingThrottle: 0
   primaryObjectives:
-  - {fileID: 11400000, guid: ec724e03753644de9b03760ea714f97f, type: 2}
-  - {fileID: 11400000, guid: 95f4b6bc6c9734945bbb00c2b6718392, type: 2}
+  - {fileID: 11400000, guid: be1d618880b9f4a7bac1581688d9d0ba, type: 2}
   secondaryObjectives:
-  - {fileID: 11400000, guid: 90d84baf2013e4aca817a7d0c84b37b4, type: 2}
+  - {fileID: 11400000, guid: 49d87ac891e5c4ad787703788d3eb739, type: 2}
+  - {fileID: 11400000, guid: cfb758981cbff43de9f7d7fced7af955, type: 2}
+  - {fileID: 11400000, guid: df681cc89b2d846caba526153e874a7e, type: 2}
   primaryObjectiveCompleted: 000000
   secondayObjectivesCompleted: 000000
   secondaryObjectivesFailed: 000000
   DEBUG_AUTO_COMPLETE: 0
-  DEBUG_AUTO_RESET: 1
+  DEBUG_AUTO_RESET: 0

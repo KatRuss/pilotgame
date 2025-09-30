@@ -11,8 +11,6 @@ public class RingObjective : Objective
         return liveData.ringsPassed >= NumRingsToPassThrough;
     }
 
-    public override bool isObjectiveFailed(LiveData liveData) { return false; }
-
     public override string getObjectiveString()
     {
         return $"Fly through {NumRingsToPassThrough} rings";

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc91c528e3c3493bae961d4df38c635, type: 3}
-  m_Name: MissionList
-  m_EditorClassIdentifier: Assembly-CSharp::MissionList
-  missions: []
+  m_Script: {fileID: 11500000, guid: 06c9fd1d003a34696b0bbf5d7d2be44e, type: 3}
+  m_Name: Mission2FuelSecondary
+  m_EditorClassIdentifier: Assembly-CSharp::FuelRemainingObjective
+  FuelRemaining: 45

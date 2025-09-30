@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc91c528e3c3493bae961d4df38c635, type: 3}
-  m_Name: MissionList
-  m_EditorClassIdentifier: Assembly-CSharp::MissionList
-  missions: []
+  m_Script: {fileID: 11500000, guid: 6fbcf9111b4a049c7b0f8949e5be2c29, type: 3}
+  m_Name: Mission4TurningSecondary
+  m_EditorClassIdentifier: Assembly-CSharp::TimeSpentTurningObjective
+  turnTimeSeconds: 0

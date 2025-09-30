@@ -42,6 +42,11 @@ public class PlaneController : MonoBehaviour
             liveData.throttle += plane.getAcceleration() * throttleActionValue;
             liveData.throttle = Mathf.Clamp(liveData.throttle, 0f, 100f);
         }
+
+        if (liveData.turn != 0)
+        {
+            liveData.timeSpentTurning += Time.deltaTime;
+        }
     }
 
     void setResponseModifier()

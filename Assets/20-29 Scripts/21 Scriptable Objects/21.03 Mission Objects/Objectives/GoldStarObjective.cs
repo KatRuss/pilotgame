@@ -8,11 +8,6 @@ public class GoldStarObjective : Objective
         return liveData.GoldStarCollected;
     }
 
-    public override bool isObjectiveFailed(LiveData liveData)
-    {
-        return false;
-    }
-
     public override string getObjectiveString()
     {
         return "Find the Gold Star!";

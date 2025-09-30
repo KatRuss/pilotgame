@@ -30,6 +30,7 @@ public class LiveData : ScriptableObject
     public int ringsPassed;
     public bool GoldStarCollected;
     public int skydiversDropped;
+    public float timeSpentTurning;
 
     [Header("Game Data")]
     public bool gameIsPaused;
@@ -76,5 +77,6 @@ public class LiveData : ScriptableObject
         ringsPassed = 0;
         merits = 0;
         skydiversDropped = 0;
+        timeSpentTurning = 0;
     }
 }

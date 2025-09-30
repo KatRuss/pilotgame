@@ -10,7 +10,7 @@ public enum AltitudeType {
 public class AltitudeObjective : Objective {
     [SerializeField] AltitudeType altitudeType;
     [SerializeField] int desiredAltitude;
-    [SerializeField] int warningBufferSeconds;
+    int warningBufferSeconds = 10;
     float timer = 0f;
     bool failed;
 
