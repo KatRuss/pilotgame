@@ -11,6 +11,9 @@ public enum TimeOfDay
 [CreateAssetMenu(fileName = "Mission", menuName = "Mission/Mission", order = 0)]
 public class Mission : ScriptableObject
 {
+    [Header("Menu Info")]
+    public string menuName;
+    [TextArea(2,2)] public string menuDescription;
     [Header("Level Info")]
     public GameObject missionPrefab;
     public TimeOfDay timeOfDay;

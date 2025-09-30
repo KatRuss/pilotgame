@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbcf9111b4a049c7b0f8949e5be2c29, type: 3}
   m_Name: Mission4TurningSecondary
   m_EditorClassIdentifier: Assembly-CSharp::TimeSpentTurningObjective
-  turnTimeSeconds: 0
+  turnTimeSeconds: 10

@@ -10,19 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d20cf1efaa8d44c29f27bbb8c2ab42b, type: 3}
-  m_Name: Mission 2
+  m_Name: Free Flight
   m_EditorClassIdentifier: Assembly-CSharp::Mission
-  menuName: 
+  menuName: Free Flight
   menuDescription: 
-  missionPrefab: {fileID: 0}
+  missionPrefab: {fileID: 8189355626235400755, guid: 6cddd8667ad834f77895a760760d3928, type: 3}
   timeOfDay: 80
   startingThrottle: 0
   primaryObjectives:
-  - {fileID: 11400000, guid: df681cc89b2d846caba526153e874a7e, type: 2}
-  secondaryObjectives:
-  - {fileID: 11400000, guid: 49d87ac891e5c4ad787703788d3eb739, type: 2}
-  - {fileID: 11400000, guid: cfb758981cbff43de9f7d7fced7af955, type: 2}
-  - {fileID: 11400000, guid: df681cc89b2d846caba526153e874a7e, type: 2}
+  - {fileID: 11400000, guid: 8b500767812144fc1b47baf52e555596, type: 2}
+  secondaryObjectives: []
   primaryObjectiveCompleted: 000000
   secondayObjectivesCompleted: 000000
   secondaryObjectivesFailed: 000000

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0432a4841dfe440ea80ea27969df0b1c, type: 3}
   m_Name: Mission4TimePrimary
   m_EditorClassIdentifier: Assembly-CSharp::TimerObjective
-  timerSeconds: 0
+  timerSeconds: 120

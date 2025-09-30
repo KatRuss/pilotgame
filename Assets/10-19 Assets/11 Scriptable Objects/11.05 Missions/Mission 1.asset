@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d20cf1efaa8d44c29f27bbb8c2ab42b, type: 3}
   m_Name: Mission 1
   m_EditorClassIdentifier: Assembly-CSharp::Mission
+  menuName: 
+  menuDescription: 
   missionPrefab: {fileID: 0}
   timeOfDay: 20
   startingThrottle: 0
   primaryObjectives:
-  - {fileID: 11400000, guid: df681cc89b2d846caba526153e874a7e, type: 2}
+  - {fileID: 11400000, guid: be1d618880b9f4a7bac1581688d9d0ba, type: 2}
   secondaryObjectives:
-  - {fileID: 11400000, guid: 49d87ac891e5c4ad787703788d3eb739, type: 2}
-  - {fileID: 11400000, guid: cfb758981cbff43de9f7d7fced7af955, type: 2}
+  - {fileID: 11400000, guid: 6660164775f32411595d6bd303f66dc3, type: 2}
   - {fileID: 11400000, guid: df681cc89b2d846caba526153e874a7e, type: 2}
   primaryObjectiveCompleted: 000000
   secondayObjectivesCompleted: 000000

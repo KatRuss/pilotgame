@@ -30,7 +30,6 @@ public class MissionController : MonoBehaviour
         liveData.timer += Time.deltaTime;
     }
 
-
     int SpawnLevelPrefab()
     {
         GameObject level = Instantiate(liveData.activeMission.missionPrefab);
