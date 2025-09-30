@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mission
   missionPrefab: {fileID: 8189355626235400755, guid: 4005f382361584d2baea343d19c97fc2, type: 3}
   timeOfDay: 20
-  startingThrottle: 24
+  startingThrottle: 0
   primaryObjectives:
   - {fileID: 11400000, guid: ec724e03753644de9b03760ea714f97f, type: 2}
   - {fileID: 11400000, guid: 95f4b6bc6c9734945bbb00c2b6718392, type: 2}
