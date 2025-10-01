@@ -9,6 +9,6 @@ public class RingSpinner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(transform.forward, rotateSpeed * Time.deltaTime);
+        transform.Rotate(0,0,rotateSpeed*Time.deltaTime);
     }
 }

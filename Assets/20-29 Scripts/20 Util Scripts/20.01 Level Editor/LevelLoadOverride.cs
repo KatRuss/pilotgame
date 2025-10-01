@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class LevelLoadOverride : MonoBehaviour
 {
@@ -9,7 +8,7 @@ public class LevelLoadOverride : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         liveData.activeMission = missionToLoad;
     }

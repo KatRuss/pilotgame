@@ -27,6 +27,7 @@ EditorBuildSettings:
     path: Assets/30-39 Scenes/31 Core Scenes/31.04 UI Scenes/S-UI-MainMenu.unity
     guid: e31b3abc2213f4aacb119da62a26c34c
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 02ce68f24bc05454b94b334f15663a5f, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 26df441f6b8554cb39adc61d3419d4ee, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 6ec7aa96e572a471caed51d0e7522758, type: 3}
   m_UseUCBPForAssetBundles: 0

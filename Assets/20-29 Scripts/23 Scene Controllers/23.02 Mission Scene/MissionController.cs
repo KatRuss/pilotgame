@@ -7,16 +7,20 @@ public class MissionController : MonoBehaviour
     [SerializeField] GameObject cameraObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+
+    }
+
     void Start()
     {
+        //liveData.throttle = liveData.activeMission.startingThrottle;
+
         // Spawn Player and level items
         List<int> instanceIDs = new List<int>();
         instanceIDs.Add(SpawnLevelPrefab());
         instanceIDs.AddRange(SpawnPlayer());
-
         //TODO: Move game objects to their own temp scene.
-
-        liveData.throttle = liveData.activeMission.startingThrottle;
     }
 
     void Update()

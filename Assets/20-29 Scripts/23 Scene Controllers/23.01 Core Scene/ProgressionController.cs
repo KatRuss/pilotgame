@@ -10,7 +10,6 @@ public class ProgressionController : MonoBehaviour
     {
         if (liveData.missionComplete || liveData.missionFailed)
         {
-            Debug.Log("Merit Check");
             liveData.merits = GetCompletedMerits();
             HandleUnlocks();
         }

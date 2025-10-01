@@ -13,11 +13,26 @@ MonoBehaviour:
   m_Name: LiveData
   m_EditorClassIdentifier: Assembly-CSharp::LiveData
   throttle: 0
+  turn: 0
+  pitch: 0
+  currentWeight: 0
+  distanceToGround: 0
   altitude: 0
   fuel: 0
   currentStallThrust: 0
   planeStalling: 0
-  activeMission: {fileID: 0}
+  activeMission: {fileID: 11400000, guid: cc7079d7052dc48d38af9b8cb434d8ef, type: 2}
   missionComplete: 0
   missionFailed: 0
+  timer: 0.019999992
   ringsPassed: 0
+  GoldStarCollected: 0
+  skydiversDropped: 0
+  timeSpentTurning: 0
+  gameIsPaused: 0
+  merits: 0
+  headerToShow: 
+  messageToShow: 
+  showUI: 0
+  showFuel: 0
+  showTimer: 0

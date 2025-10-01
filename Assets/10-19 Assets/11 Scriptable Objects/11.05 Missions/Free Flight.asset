@@ -16,7 +16,7 @@ MonoBehaviour:
   menuDescription: 
   missionPrefab: {fileID: 8189355626235400755, guid: 6cddd8667ad834f77895a760760d3928, type: 3}
   timeOfDay: 80
-  startingThrottle: 0
+  startingThrottle: 70
   primaryObjectives:
   - {fileID: 11400000, guid: 8b500767812144fc1b47baf52e555596, type: 2}
   secondaryObjectives: []
