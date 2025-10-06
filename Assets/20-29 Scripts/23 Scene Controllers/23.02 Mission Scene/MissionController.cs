@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Unity.Collections;
 public class MissionController : MonoBehaviour
 {
     [SerializeField] LiveData liveData;
     [SerializeField] GameObject playerObject;
     [SerializeField] GameObject cameraObject;
+
+    bool missionBegin = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -16,11 +20,31 @@ public class MissionController : MonoBehaviour
     {
         //liveData.throttle = liveData.activeMission.startingThrottle;
 
-        // Spawn Player and level items
-        List<int> instanceIDs = new List<int>();
-        instanceIDs.Add(SpawnLevelPrefab());
-        instanceIDs.AddRange(SpawnPlayer());
-        //TODO: Move game objects to their own temp scene.
+        SetUpLevel();
+    }
+
+    void SetUpLevel()
+    {
+        Scene tempMissionScene = SceneManager.CreateScene("S-Mission-Temp");
+        GameObject level = Instantiate(liveData.activeMission.missionPrefab);
+        GameObject camera = Instantiate(cameraObject);
+
+        SceneManager.MoveGameObjectToScene(level, tempMissionScene);
+        SceneManager.MoveGameObjectToScene(camera, tempMissionScene);
+
+        if (missionBegin)
+        {
+            SpawnPlayer(camera);
+        }
+    }
+
+    void SpawnPlayer(GameObject cam)
+    {
+        GameObject player = Instantiate(playerObject, liveData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
+        cam.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"), true);
+
+        Scene playerScene = SceneManager.CreateScene("S-Player-Temp");
+        SceneManager.MoveGameObjectToScene(player,playerScene);
     }
 
     void Update()
@@ -34,27 +58,13 @@ public class MissionController : MonoBehaviour
         liveData.timer += Time.deltaTime;
     }
 
-    int SpawnLevelPrefab()
-    {
-        GameObject level = Instantiate(liveData.activeMission.missionPrefab);
-        return level.GetInstanceID();
-    }
-
-    List<int> SpawnPlayer()
-    {
-        GameObject player = Instantiate(playerObject, liveData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
-        GameObject camera = Instantiate(cameraObject);
-        camera.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"), true);
-        return new List<int> {player.GetInstanceID(), camera.GetInstanceID()};
-    }
-
     void PrimaryMissionCheck()
     {
         for (int i = 0; i < liveData.activeMission.primaryObjectives.Length; i++)
         {
-            if (!isMissionFailed())
+            if (!IsMissionFailed())
             {
-                if (isMissionComplete())
+                if (IsMissionComplete())
                 {
                     liveData.missionComplete = true;
                 }
@@ -86,7 +96,7 @@ public class MissionController : MonoBehaviour
         }
     }
 
-    public bool isMissionFailed()
+    public bool IsMissionFailed()
     {
         // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
         foreach (Objective pObjective in liveData.activeMission.primaryObjectives)
@@ -99,7 +109,7 @@ public class MissionController : MonoBehaviour
         return false;
     }
 
-    public bool isMissionComplete()
+    public bool IsMissionComplete()
     {
         // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
         foreach (Objective pObjective in liveData.activeMission.primaryObjectives)

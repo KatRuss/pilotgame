@@ -1,23 +1,19 @@
+using System;
 using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
 
-    [SerializeField] SharedInt levelToLoad;
-    [SerializeField] RectTransform leftPoint;
-    [SerializeField] RectTransform rightPoint;
+    [SerializeField] GameObject levelCard;
+    [SerializeField] GameObject levelListHolder;
+    [SerializeField] GameObject levelSelectMenu;
+    [SerializeField] MissionList missionList;
+    [SerializeField] GameObject mainMenu;
 
-    [SerializeField] float menuSpeed;
-
-    GameObject menuOnCenter;
-    GameObject menuOnLeft;
-    GameObject menuOnRight;
-
-
-
-    void Start()
+    private void Awake()
     {
-        menuOnCenter = transform.GetChild(0).gameObject;
+        populateLevelList();
+        mainMenu.SetActive(true);
     }
 
     void Update()
@@ -27,24 +23,18 @@ public class MainMenuController : MonoBehaviour
         //menuOnRight.transform.position = Vector3.Lerp(menuOnRight.transform.position, rightPoint.position, menuSpeed * Time.deltaTime);
     }
 
-    public void SetLevelToLoad(int levelID)
+    public void populateLevelList()
     {
-        levelToLoad.value = levelID;
+        for (int i = 0; i < missionList.missions.Length; i++)
+        {
+            var card = Instantiate(levelCard, levelListHolder.transform);
+            card.GetComponent<LevelButtonController>().missionNumber = i;
+        }
     }
 
-    public void MoveToLeft()
+    public void showLevelMenu()
     {
-        GameObject g = menuOnCenter;
-        menuOnCenter = menuOnLeft;
-        menuOnLeft = g;
+        levelSelectMenu.SetActive(true);
+        mainMenu.SetActive(false);
     }
-
-    public void MoveToRight()
-    {
-        GameObject g = menuOnCenter;
-        menuOnCenter = menuOnRight;
-        menuOnRight = g;
-
-    }
-
 }
