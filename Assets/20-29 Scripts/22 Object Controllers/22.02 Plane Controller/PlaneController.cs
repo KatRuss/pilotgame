@@ -13,40 +13,24 @@ public class PlaneController : MonoBehaviour
     float responseModifier = 0.0f;
     
     Rigidbody rb;
-    InputAction pitchAction, turnAction, throttleAction;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        getInputActions();
         liveData.fuel = plane.getFuelMax();
     }
 
-    void getInputActions()
+    void handleThrottle()
     {
-        pitchAction = InputSystem.actions.FindAction("pitch");
-        turnAction = InputSystem.actions.FindAction("yaw");
-        throttleAction = InputSystem.actions.FindAction("throttle");
-    }
-
-    void handleInputs()
-    {
-        liveData.pitch = pitchAction.ReadValue<float>();
-        liveData.turn = turnAction.ReadValue<float>();
-
-
-        var throttleActionValue = throttleAction.ReadValue<float>();
-        // Get Throttle
-        if (throttleActionValue != 0)
+        if (liveData.throttleActionValue != 0)
         {
-            liveData.throttle += plane.getAcceleration() * throttleActionValue;
+            liveData.throttle += plane.getAcceleration() * liveData.throttleActionValue;
             liveData.throttle = Mathf.Clamp(liveData.throttle, 0f, 100f);
         }
-
         if (liveData.turn != 0)
         {
             liveData.timeSpentTurning += Time.deltaTime;
-        }
+        }     
     }
 
     void setResponseModifier()
@@ -76,8 +60,7 @@ public class PlaneController : MonoBehaviour
         // Modify Altitude
         liveData.altitude = transform.position.y;
 
-        //Get Player Input
-        handleInputs();
+        handleThrottle();
     }
 
     Quaternion calculatePlaneAngles()

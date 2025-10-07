@@ -10,7 +10,7 @@ public class CoreController : MonoBehaviour
     [SerializeField] SharedInt levelToLoad; //Reference of what misison should be loaded.
     [SerializeField] MissionList missionList;
 
-    readonly string[] LevelScenes = { "S-Foxtail-Gameplay", "S-Mission-Controller", "S-UI-Gameplay" };
+    readonly string[] LevelScenes = { "S-Foxtail-Gameplay", "S-Mission-Controller", "S-UI-Gameplay", "S-UI-Pause" };
     readonly string[] MenuScenes = { "S-Foxtail-MainMenu", "S-UI-MainMenu" };
 
     int loadedLevel = -1;
@@ -26,7 +26,7 @@ public class CoreController : MonoBehaviour
         // Level Loading
         if (levelToLoad.value != loadedLevel)
         {
-            if (levelToLoad.value == -1)
+            if (levelToLoad.value == -1) //Choosing main menu
             {
                 LoadMainMenu();
             }

@@ -8,12 +8,14 @@ public class LiveData : ScriptableObject
     // Should not include utility things such as scene loading information, etc. As this is just for values that change during play.
 
     [Header("Player Data")]
+    public bool playerActive;
     public float throttle;
     // turn in this case is the combination of roll and yaw.
     // yaw is what the player is controlling, roll is for visual effect.
     [Tooltip("The Combination of pitch and yaw. Yaw is what the player is controlling.")]
     public float turn;
     public float pitch;
+    public float throttleActionValue;
     public float currentWeight;
     public float distanceToGround;
     public float altitude;
@@ -58,7 +60,13 @@ public class LiveData : ScriptableObject
     {
         resetPlayerData();
         resetMissionData();
+        resetGameData();
         resetObjectiveData();
+    }
+
+    void resetGameData()
+    {
+        gameIsPaused = false;
     }
 
     void resetPlayerData()

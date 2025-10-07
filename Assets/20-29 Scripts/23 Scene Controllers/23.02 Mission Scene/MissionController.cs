@@ -10,11 +10,6 @@ public class MissionController : MonoBehaviour
 
     bool missionBegin = true;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
-    {
-
-    }
 
     void Start()
     {
@@ -35,6 +30,7 @@ public class MissionController : MonoBehaviour
         if (missionBegin)
         {
             SpawnPlayer(camera);
+            liveData.playerActive = true;
         }
     }
 

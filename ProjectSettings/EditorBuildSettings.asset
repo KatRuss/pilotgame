@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/30-39 Scenes/31 Core Scenes/31.04 UI Scenes/S-UI-MainMenu.unity
     guid: e31b3abc2213f4aacb119da62a26c34c
+  - enabled: 1
+    path: Assets/30-39 Scenes/31 Core Scenes/31.04 UI Scenes/S-UI-Pause.unity
+    guid: 31dd9a1f80b824953b7c7ef91eb21050
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 02ce68f24bc05454b94b334f15663a5f, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 26df441f6b8554cb39adc61d3419d4ee, type: 2}
