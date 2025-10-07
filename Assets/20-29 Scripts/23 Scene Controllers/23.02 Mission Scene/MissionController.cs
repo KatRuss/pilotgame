@@ -8,6 +8,9 @@ public class MissionController : MonoBehaviour
     [SerializeField] GameObject playerObject;
     [SerializeField] GameObject cameraObject;
 
+    Scene tempMissionScene;
+    Scene playerScene;
+
     bool missionBegin = true;
 
 
@@ -20,7 +23,7 @@ public class MissionController : MonoBehaviour
 
     void SetUpLevel()
     {
-        Scene tempMissionScene = SceneManager.CreateScene("S-Mission-Temp");
+        tempMissionScene = SceneManager.CreateScene("S-Mission-Temp");
         GameObject level = Instantiate(liveData.activeMission.missionPrefab);
         GameObject camera = Instantiate(cameraObject);
 
@@ -39,8 +42,14 @@ public class MissionController : MonoBehaviour
         GameObject player = Instantiate(playerObject, liveData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
         cam.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"), true);
 
-        Scene playerScene = SceneManager.CreateScene("S-Player-Temp");
+        playerScene = SceneManager.CreateScene("S-Player-Temp");
         SceneManager.MoveGameObjectToScene(player,playerScene);
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.UnloadSceneAsync(playerScene);
+        SceneManager.UnloadSceneAsync(tempMissionScene);
     }
 
     void Update()
