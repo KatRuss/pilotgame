@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5639cca4cdb084f34a19cc9eb1042b57, type: 3}
   m_Name: TestPlaneEngine
   m_EditorClassIdentifier: Assembly-CSharp::PlaneEngineObject
-  engineMenuName: planeengine
+  partName: Starter Engine
+  partDescription: 
   weight: 50
   thrustMaximum: 200
   accelerationForce: 0.1

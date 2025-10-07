@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionController
   progressionList: {fileID: 11400000, guid: 77b1becbf09ee4d2d919921789b1ebe5, type: 2}
-  missionList: {fileID: 11400000, guid: eef8d0714c8ee4a428f57ab9f0dba956, type: 2}
+  missionList: {fileID: 11400000, guid: c39f1b780a4bf4cf8969314ad3db68ff, type: 2}
   liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
 --- !u!114 &217295021
 MonoBehaviour:

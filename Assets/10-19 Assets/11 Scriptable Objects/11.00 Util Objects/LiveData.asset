@@ -12,19 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e735dee2f33e24a0ba3e5695683b49a4, type: 3}
   m_Name: LiveData
   m_EditorClassIdentifier: Assembly-CSharp::LiveData
+  playerPlane: {fileID: 11400000, guid: 0c9bedd9dceb84b8ba5335c1f024798d, type: 2}
+  playerActive: 0
   throttle: 0
   turn: 0
   pitch: 0
+  throttleActionValue: 0
   currentWeight: 0
   distanceToGround: 0
   altitude: 0
   fuel: 0
   currentStallThrust: 0
   planeStalling: 0
-  activeMission: {fileID: 11400000, guid: cc7079d7052dc48d38af9b8cb434d8ef, type: 2}
+  activeMission: {fileID: 0}
   missionComplete: 0
   missionFailed: 0
-  timer: 0.019999992
+  timer: 0
   ringsPassed: 0
   GoldStarCollected: 0
   skydiversDropped: 0

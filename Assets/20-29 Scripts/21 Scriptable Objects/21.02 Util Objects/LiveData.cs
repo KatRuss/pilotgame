@@ -8,6 +8,7 @@ public class LiveData : ScriptableObject
     // Should not include utility things such as scene loading information, etc. As this is just for values that change during play.
 
     [Header("Player Data")]
+    public PlaneObject playerPlane;
     public bool playerActive;
     public float throttle;
     // turn in this case is the combination of roll and yaw.

@@ -66,5 +66,33 @@ public class PlaneObject : ScriptableObject
         );
     }
 
+    public PlaneBodyObject GetPlaneBody()
+    {
+        return planeBody;
+    }
 
+    public void SetPlaneBody(PlaneBodyObject pb)
+    {
+        planeBody = pb;
+    }
+
+    public PlaneEngineObject GetPlaneEngine()
+    {
+        return planeEngine;
+    }
+
+    public void SetPlaneEngine(PlaneEngineObject pb)
+    {
+        planeEngine = pb;
+    }
+
+    public PlaneFuelTankObject GetPlaneFuelTank()
+    {
+        return planeFuelTank;
+    }
+
+    public void setPlaneFuelTank(PlaneFuelTankObject pf)
+    {
+        planeFuelTank = pf;
+    }
 }

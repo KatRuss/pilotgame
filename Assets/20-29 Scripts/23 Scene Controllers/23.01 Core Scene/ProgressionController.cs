@@ -6,6 +6,11 @@ public class ProgressionController : MonoBehaviour
     [SerializeField] MissionList missionList;
     [SerializeField] LiveData liveData;
 
+    void Awake()
+    {
+        HandleUnlocks();
+    }
+
     private void Update()
     {
         if (liveData.missionComplete || liveData.missionFailed)
@@ -40,7 +45,7 @@ public class ProgressionController : MonoBehaviour
                 }
             }
         }
-
         return result;
     }
-}
+
+ }

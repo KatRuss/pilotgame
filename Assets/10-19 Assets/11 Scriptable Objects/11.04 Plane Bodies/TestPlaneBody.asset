@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac14a76ac32e540ff9f43667979c271e, type: 3}
   m_Name: TestPlaneBody
   m_EditorClassIdentifier: Assembly-CSharp::PlaneBodyObject
-  partName: 
+  partName: Starter Body
+  partDescription: 
   weight: 250
   modelMenuName: planebody
   responsiveness: 1.85
