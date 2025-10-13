@@ -52,18 +52,21 @@ Material:
     m_Ints: []
     m_Floats:
     - _Border_Point: 0.1
-    - _Depth: 4.68
-    - _DepthStrength: 0.065
+    - _Coast_Point: 0.2
+    - _Depth: 6.09
+    - _DepthStrength: 0.04
     - _Displacement: 1
     - _Fresnel_Power: 4.34
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _WaveCoastOpacity: 0.7
     - _WaveDeepOpacity: 0.1
     - _WaveOpacity: 0.35
-    - _WaveShallowOpacity: 1.24
+    - _WaveShallowOpacity: 0.5
     - _WaveSpeed: 0.1
     - _Wave_Scale: 2
     m_Colors:
+    - _Coast_Colour: {r: 0.9568626, g: 0.96078426, b: 0.9372549, a: 1}
     - _Deep_Water: {r: 0.19999987, g: 0.6117647, b: 0.6392157, a: 0.95686275}
     - _Shallow_Water: {r: 0.5215685, g: 0.8745098, b: 0.9215686, a: 1}
   m_BuildTextureStacks: []
