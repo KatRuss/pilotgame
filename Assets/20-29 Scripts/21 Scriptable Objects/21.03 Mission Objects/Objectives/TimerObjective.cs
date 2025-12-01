@@ -1,4 +1,3 @@
-using System.Threading;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TimerObjective", menuName = "Mission/Objectives/TimerObjective", order = 0)]

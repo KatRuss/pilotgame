@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New SharedInt", menuName = "Util/SharedInt", order = 0)]

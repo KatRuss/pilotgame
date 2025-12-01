@@ -1,4 +1,3 @@
-using UnityEditor.EditorTools;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Fuel Tank", menuName = "Plane/Fuel Tank", order = 0)]

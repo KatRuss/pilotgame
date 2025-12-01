@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "LiveData", menuName = "LiveData", order = 0)]
 public class LiveData : ScriptableObject

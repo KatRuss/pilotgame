@@ -1,6 +1,4 @@
-using System.IO.Compression;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlaneController : MonoBehaviour
 {
