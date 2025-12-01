@@ -6,7 +6,7 @@ public class CoreController : MonoBehaviour
     // Handles loading scenes, destorying them, and exiting out of the game
     // Additionally, handles anything that must be 
 
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
     [SerializeField] SharedInt levelToLoad; //Reference of what misison should be loaded.
     [SerializeField] MissionList missionList;
 

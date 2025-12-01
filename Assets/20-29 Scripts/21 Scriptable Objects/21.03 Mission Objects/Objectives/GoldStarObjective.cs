@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GoldStarObjective", menuName = "Mission/Objectives/GoldStarObjective", order = 0)]
 public class GoldStarObjective : Objective
 {
-    public override bool isObjectiveComplete(LiveData liveData)
+    public override bool isObjectiveComplete(LiveGameData liveData)
     {
         return liveData.GoldStarCollected;
     }

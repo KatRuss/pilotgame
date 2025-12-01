@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "LiveData", menuName = "LiveData", order = 0)]
-public class LiveData : ScriptableObject
+public class LiveGameData : ScriptableObject
 {
     // Data regarding the game is it is being played. Mission update information, player stats, etc.
     // Should not include utility things such as scene loading information, etc. As this is just for values that change during play.

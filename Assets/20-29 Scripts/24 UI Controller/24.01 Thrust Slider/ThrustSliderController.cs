@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class ThrustSliderController : MonoBehaviour
 {
 
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
     Slider slider;
 
     void setThrottleUI()

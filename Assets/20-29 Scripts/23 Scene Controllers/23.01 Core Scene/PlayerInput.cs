@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
     InputAction pitchAction, turnAction, throttleAction, pauseAction;
 
     void Start()

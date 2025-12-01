@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SkydiveSpotController : MonoBehaviour
 {
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
     [SerializeField] int requiredHeight;
 
 

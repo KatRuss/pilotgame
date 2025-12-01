@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RingController : MonoBehaviour
 {
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
 
     void OnTriggerEnter(Collider other)
     {

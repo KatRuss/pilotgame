@@ -3,7 +3,7 @@ using UnityEngine;
 public class GoldStarController : MonoBehaviour
 {
 
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
 
     void Start()
     {

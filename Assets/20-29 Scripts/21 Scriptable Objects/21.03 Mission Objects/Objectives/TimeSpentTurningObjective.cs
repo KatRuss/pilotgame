@@ -6,7 +6,7 @@ public class TimeSpentTurningObjective : Objective
 
     [SerializeField] int turnTimeSeconds;
 
-    public override bool isObjectiveComplete(LiveData liveData)
+    public override bool isObjectiveComplete(LiveGameData liveData)
     {
         return liveData.timeSpentTurning >= turnTimeSeconds;
     }

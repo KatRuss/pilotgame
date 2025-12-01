@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlaneController : MonoBehaviour
 {
     [SerializeField] PlaneObject plane;
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
 
     float rollAngle, pitchAngle, turnAngle = 0.0f;
 

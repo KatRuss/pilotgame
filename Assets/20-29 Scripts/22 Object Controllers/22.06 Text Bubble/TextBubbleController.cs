@@ -3,7 +3,7 @@ using UnityEngine;
 public class TextBubbleController : MonoBehaviour
 {
 
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
     [SerializeField] string textTitle;
     [SerializeField][TextArea(2, 2)] string message;
 

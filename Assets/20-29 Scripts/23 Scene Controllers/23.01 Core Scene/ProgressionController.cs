@@ -4,7 +4,7 @@ public class ProgressionController : MonoBehaviour
 {
     [SerializeField] ProgressionList progressionList;
     [SerializeField] MissionList missionList;
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
 
     void Awake()
     {

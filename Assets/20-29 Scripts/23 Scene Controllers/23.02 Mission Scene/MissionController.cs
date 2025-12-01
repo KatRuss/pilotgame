@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MissionController : MonoBehaviour
 {
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
     [SerializeField] GameObject playerObject;
     [SerializeField] GameObject cameraObject;
 

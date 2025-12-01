@@ -19,12 +19,12 @@ public class AltitudeObjective : Objective {
         timer = 0.0f;
     }
 
-    public override bool isObjectiveComplete(LiveData liveData)
+    public override bool isObjectiveComplete(LiveGameData liveData)
     {
         return liveData.missionComplete && !failed;
     }
 
-    public override bool isObjectiveFailed(LiveData liveData)
+    public override bool isObjectiveFailed(LiveGameData liveData)
     {
         if (failed)
             return true;

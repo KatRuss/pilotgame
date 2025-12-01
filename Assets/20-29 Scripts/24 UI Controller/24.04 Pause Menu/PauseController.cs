@@ -3,7 +3,7 @@ using UnityEngine;
 public class PauseController : MonoBehaviour
 {
 
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
     [SerializeField] SharedInt levelToLoad;
     [SerializeField] GameObject pauseScreen;
 

@@ -5,7 +5,7 @@ public class SkydiverObjective : Objective
 {
     [SerializeField] int skydiverNum;
 
-    public override bool isObjectiveComplete(LiveData liveData)
+    public override bool isObjectiveComplete(LiveGameData liveData)
     {
         return liveData.skydiversDropped >= skydiverNum;
     }

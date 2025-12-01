@@ -6,7 +6,7 @@ using UnityEngine;
 public class MainMenuController : MonoBehaviour
 {
 
-    [SerializeField] LiveData liveData;
+    [SerializeField] LiveGameData liveData;
 
     [Header("Menu Objects")]
     [SerializeField] GameObject mainMenu;
