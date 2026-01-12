@@ -25,15 +25,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "roll",
-                    "type": "Value",
-                    "id": "3b2d6f8c-9e3d-47f6-9f23-25c1e9fcb34e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "throttle",
                     "type": "Value",
                     "id": "da9ab1e8-9603-4c75-a5ea-6fe038c4f471",
@@ -87,6 +78,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "gamepad",
+                    "id": "f42711f7-68d2-489d-a61a-66ac4e05fe4a",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "yaw",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "42dfd4cb-da1e-4cb6-a466-1e5e55b3410d",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "409a93a2-b499-40a0-9ebf-5e708d038170",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "qwerty",
                     "id": "0c950a69-3567-43dd-bf75-12462995c6c7",
                     "path": "1DAxis",
@@ -120,48 +144,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "ef5437f4-8929-40c6-8456-33724d6c9dee",
+                    "name": "gamepad",
+                    "id": "5b4b711a-29f9-498d-84d0-52d03baf1a9e",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "roll",
+                    "action": "pitch",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "b10e3ae5-ca86-4712-bd0f-9209a4cba73d",
-                    "path": "<Keyboard>/q",
+                    "id": "93f82e92-9897-4509-b0e0-dfaa171cca86",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "roll",
+                    "action": "pitch",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "195547d1-4408-46c0-bc1a-87a8b3d6ada9",
-                    "path": "<Keyboard>/e",
+                    "id": "927b82b1-5eab-45e7-b74a-0e21c8d43f41",
+                    "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "roll",
+                    "action": "pitch",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "4606c146-91a6-4a63-bd61-9e32bfeaa496",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "throttle",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "1D Axis",
