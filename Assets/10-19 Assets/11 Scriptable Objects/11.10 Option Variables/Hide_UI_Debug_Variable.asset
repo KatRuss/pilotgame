@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50cf49e31c0404f8595fdf2fe066b340, type: 3}
-  m_Name: LevelToLoad
-  m_EditorClassIdentifier: Assembly-CSharp::SharedInt
-  defaultValue: -1
+  m_Script: {fileID: 11500000, guid: 853d0bb3a1866416eac20c397d43033f, type: 3}
+  m_Name: Hide_UI_Debug_Variable
+  m_EditorClassIdentifier: Assembly-CSharp::SharedBool
+  defaultValue: 0
   resetOnStartup: 1
-  value: -1
+  value: 0

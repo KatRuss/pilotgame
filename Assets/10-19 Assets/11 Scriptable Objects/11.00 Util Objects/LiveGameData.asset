@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LiveGameData
   m_EditorClassIdentifier: Assembly-CSharp::LiveData
   playerPlane: {fileID: 11400000, guid: 0c9bedd9dceb84b8ba5335c1f024798d, type: 2}
-  playerActive: 0
+  playerActive: 1
   throttle: 0
   turn: 0
   pitch: 0

@@ -37,6 +37,7 @@ public class LiveGameData : ScriptableObject
 
     [Header("Game Data")]
     public bool gameIsPaused;
+    public bool debugOn;
 
     [Header("Progression System")]
     public int merits;

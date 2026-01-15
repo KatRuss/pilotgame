@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] LiveGameData liveData;
-    InputAction pitchAction, turnAction, throttleAction, pauseAction;
+    InputAction pitchAction, turnAction, throttleAction, pauseAction, debugAction;
 
     void Start()
     {
@@ -12,6 +12,7 @@ public class PlayerInput : MonoBehaviour
         turnAction = InputSystem.actions.FindAction("yaw");
         throttleAction = InputSystem.actions.FindAction("throttle");
         pauseAction = InputSystem.actions.FindAction("pause");
+        debugAction = InputSystem.actions.FindAction("debug");
     }
 
     void Update()
@@ -19,6 +20,15 @@ public class PlayerInput : MonoBehaviour
         if (liveData.playerActive)
         {
             handleInputs();
+        }
+        handleDebug();
+    }
+
+    void handleDebug()
+    {
+        if (debugAction.WasPressedThisFrame())
+        {
+            liveData.debugOn = !liveData.debugOn;
         }
     }
 

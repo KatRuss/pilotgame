@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 192b0e4b6e14442bebd68c70bb2347b4, type: 3}
-  m_Name: High_End_Graphics_Setting
+  m_Name: Hide_UI_Debug_Setting
   m_EditorClassIdentifier: Assembly-CSharp::BoolOption
-  optionTitle: Use High End Graphics
-  optionToMonitor: {fileID: 11400000, guid: 87216f7b3ed2b4d42b7bcf74c8a12b63, type: 2}
+  optionTitle: Hide All UI
+  optionToMonitor: {fileID: 11400000, guid: 752f17f950c7e4b2eb4d654fd7fad2c3, type: 2}
