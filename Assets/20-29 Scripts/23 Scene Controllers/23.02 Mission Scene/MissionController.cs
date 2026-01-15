@@ -37,8 +37,8 @@ public class MissionController : MonoBehaviour
 
     void SpawnPlayer(GameObject cam)
     {
-        GameObject player = Instantiate(playerObject, liveData.activeMission.getPlayerStartingTransform().position, Quaternion.identity);
-        cam.GetComponent<CameraController>().addPov(player.transform.Find("CameraPosition"), true);
+        GameObject player = Instantiate(playerObject, liveData.activeMission.GetPlayerStartingTransform().position, Quaternion.identity);
+        cam.GetComponent<CameraController>().AddPov(player.transform.Find("CameraPosition"), true);
 
         playerScene = SceneManager.CreateScene("S-Player-Temp");
         SceneManager.MoveGameObjectToScene(player,playerScene);
@@ -85,9 +85,9 @@ public class MissionController : MonoBehaviour
     {
         for (int i = 0; i < liveData.activeMission.secondaryObjectives.Length; i++)
         {
-            if (!liveData.activeMission.secondaryObjectives[i].isObjectiveFailed(liveData))
+            if (!liveData.activeMission.secondaryObjectives[i].IsObjectiveFailed(liveData))
             {
-                if (liveData.activeMission.secondaryObjectives[i].isObjectiveComplete(liveData) && !liveData.activeMission.secondaryObjectivesFailed[i])
+                if (liveData.activeMission.secondaryObjectives[i].IsObjectiveComplete(liveData) && !liveData.activeMission.secondaryObjectivesFailed[i])
                 {
                     liveData.activeMission.secondayObjectivesCompleted[i] = true;
                 }
@@ -104,7 +104,7 @@ public class MissionController : MonoBehaviour
         // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
         foreach (Objective pObjective in liveData.activeMission.primaryObjectives)
         {
-            if (pObjective.isObjectiveFailed(liveData))
+            if (pObjective.IsObjectiveFailed(liveData))
             {
                 return true;
             }
@@ -117,7 +117,7 @@ public class MissionController : MonoBehaviour
         // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
         foreach (Objective pObjective in liveData.activeMission.primaryObjectives)
         {
-            if (!pObjective.isObjectiveComplete(liveData))
+            if (!pObjective.IsObjectiveComplete(liveData))
             {
                 return false;
             }

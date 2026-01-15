@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808c3d1759c8f43a0894396cdb8a72d7, type: 3}
   m_Name: DebugOptionList
   m_EditorClassIdentifier: Assembly-CSharp::OptionList
-  optionsSubheading: 
-  options: []
+  optionsSubheading: Debug
+  options:
+  - {fileID: 11400000, guid: 3c46bcda9e09144dbb0b829cd469140f, type: 2}

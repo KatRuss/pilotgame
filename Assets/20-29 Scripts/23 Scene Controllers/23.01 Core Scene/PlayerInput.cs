@@ -19,12 +19,12 @@ public class PlayerInput : MonoBehaviour
     {
         if (liveData.playerActive)
         {
-            handleInputs();
+            HandleInGameInput();
         }
-        handleDebug();
+        HandleNonGameplayInput();
     }
 
-    void handleDebug()
+    void HandleNonGameplayInput()
     {
         if (debugAction.WasPressedThisFrame())
         {
@@ -32,7 +32,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    void handleInputs()
+    void HandleInGameInput()
     {
 
         liveData.pitch = pitchAction.ReadValue<float>();

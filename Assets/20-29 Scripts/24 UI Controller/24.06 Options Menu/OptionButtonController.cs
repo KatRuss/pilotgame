@@ -16,7 +16,7 @@ public class OptionButtonController : OptionController
 
     public void OnClick()
     {
-        settingToMonitor.setOption(0);
+        settingToMonitor.SetOption(0);
         SetText();
     }
 

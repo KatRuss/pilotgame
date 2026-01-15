@@ -19,12 +19,12 @@ public class AltitudeObjective : Objective {
         timer = 0.0f;
     }
 
-    public override bool isObjectiveComplete(LiveGameData liveData)
+    public override bool IsObjectiveComplete(LiveGameData liveData)
     {
         return liveData.missionComplete && !failed;
     }
 
-    public override bool isObjectiveFailed(LiveGameData liveData)
+    public override bool IsObjectiveFailed(LiveGameData liveData)
     {
         if (failed)
             return true;
@@ -47,7 +47,7 @@ public class AltitudeObjective : Objective {
         return false;
     }
 
-    public override string getObjectiveString()
+    public override string GetObjectiveString()
     {
         return $"Don't go {(altitudeType == AltitudeType.Above ? "above" : "under")} {desiredAltitude} altitude.";
     }

@@ -15,14 +15,14 @@ public class PlaneController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        liveData.fuel = plane.getFuelMax();
+        liveData.fuel = plane.GetFuelMax();
     }
 
-    void handleThrottle()
+    void HandleThrottle()
     {
         if (liveData.throttleActionValue != 0)
         {
-            liveData.throttle += plane.getAcceleration() * liveData.throttleActionValue;
+            liveData.throttle += plane.GetAcceleration() * liveData.throttleActionValue;
             liveData.throttle = Mathf.Clamp(liveData.throttle, 0f, 100f);
         }
         if (liveData.turn != 0)
@@ -31,20 +31,20 @@ public class PlaneController : MonoBehaviour
         }     
     }
 
-    void setResponseModifier()
+    void SetResponseModifier()
     {
-        responseModifier = liveData.currentWeight / 10.0f * plane.getResponsiveness();
+        responseModifier = liveData.currentWeight / 10.0f * plane.GetResponsiveness();
 
     }
 
     void Update()
     {
         //Update Values
-        liveData.currentWeight = plane.getTotalWeight(liveData.fuel);
-        setResponseModifier();
+        liveData.currentWeight = plane.GetTotalWeight(liveData.fuel);
+        SetResponseModifier();
 
         //Modify Fuel
-        liveData.fuel = plane.getNewFuelLevel(liveData.fuel, liveData.throttle);
+        liveData.fuel = plane.GetNewFuelLevel(liveData.fuel, liveData.throttle);
 
         if (liveData.fuel <= 0 && !liveData.planeStalling)
             liveData.planeStalling = true;
@@ -52,16 +52,16 @@ public class PlaneController : MonoBehaviour
 
         if (liveData.planeStalling)
         {
-            liveData.currentStallThrust = plane.getNewStallThrust(liveData.currentStallThrust);
+            liveData.currentStallThrust = plane.GetNewStallThrust(liveData.currentStallThrust);
         }
 
         // Modify Altitude
         liveData.altitude = transform.position.y;
 
-        handleThrottle();
+        HandleThrottle();
     }
 
-    Quaternion calculatePlaneAngles()
+    Quaternion CalculatePlaneAngles()
     {
         // Arcade roll
         rollAngle += -liveData.turn * Time.deltaTime * responseModifier * 2f;
@@ -95,12 +95,12 @@ public class PlaneController : MonoBehaviour
         rb.mass =liveData.currentWeight;
 
         if (liveData.fuel > 0)
-            rb.AddForce(transform.forward * plane.getThrustMaximum() * liveData.throttle);
+            rb.AddForce(transform.forward * plane.GetThrustMaximum() * liveData.throttle);
         else
             rb.AddForce(transform.forward * liveData.currentStallThrust);
 
         if (liveData.distanceToGround > 3)
-            transform.rotation = calculatePlaneAngles();
+            transform.rotation = CalculatePlaneAngles();
 
         //upforce and gravity only when you're either taking off or landing.
         if (liveData.distanceToGround <= 10 || rb.linearVelocity.magnitude <= 10)

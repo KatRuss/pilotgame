@@ -5,5 +5,5 @@ public abstract class Option : ScriptableObject {
     [Header("General Info")]
     public string optionTitle;
 
-    public virtual void setOption(int value) { throw new NotImplementedException(); }
+    public virtual void SetOption(int value) { throw new NotImplementedException(); }
 }

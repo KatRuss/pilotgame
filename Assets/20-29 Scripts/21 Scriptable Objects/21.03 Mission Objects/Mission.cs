@@ -37,7 +37,7 @@ public class Mission : ScriptableObject
     public bool DEBUG_AUTO_RESET;
 
     // Level Infomration Getters
-    public Transform getPlayerStartingTransform()
+    public Transform GetPlayerStartingTransform()
     {
         return missionPrefab.transform.Find("PlayerStart");
     }

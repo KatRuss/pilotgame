@@ -5,5 +5,5 @@ public class BoolOption : Option {
     [Header("Settings Info")]
     public SharedBool optionToMonitor;
 
-    public override void setOption(int value) { optionToMonitor.value = !optionToMonitor.value; }
+    public override void SetOption(int value) { optionToMonitor.value = !optionToMonitor.value; }
 }

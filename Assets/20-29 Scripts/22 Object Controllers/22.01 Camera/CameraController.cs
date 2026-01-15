@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
         transform.forward = povs[index].forward;
     }
 
-    public void addPov(Transform pov, bool moveToPov = false)
+    public void AddPov(Transform pov, bool moveToPov = false)
     {
         povs.Add(pov);
         if (moveToPov)

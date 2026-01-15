@@ -20,7 +20,7 @@ public class OptionSliderContoller : OptionController {
 
     public void OnClick()
     {
-        settingToMonitor.setOption((int)slider.value);
+        settingToMonitor.SetOption((int)slider.value);
     }
 
     void SetText()

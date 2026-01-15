@@ -7,7 +7,7 @@ public class TimerObjective : Objective
     [SerializeField] int timerSeconds;
     [Tooltip("Enable when you want staying on the map for an amount of time to be a success critera")][SerializeField] bool completeWhenElapsed;
 
-    public override bool isObjectiveComplete(LiveGameData liveData)
+    public override bool IsObjectiveComplete(LiveGameData liveData)
     {
         if (completeWhenElapsed)
         {
@@ -18,7 +18,7 @@ public class TimerObjective : Objective
             return liveData.missionComplete && liveData.timer < timerSeconds;
         }
     }
-    public override bool isObjectiveFailed(LiveGameData liveData)
+    public override bool IsObjectiveFailed(LiveGameData liveData)
     {
         if (completeWhenElapsed)
         {
@@ -29,7 +29,7 @@ public class TimerObjective : Objective
             return liveData.timer > timerSeconds;    
         }
     }
-    public override string getObjectiveString()
+    public override string GetObjectiveString()
     {
         return $"{(completeWhenElapsed ? "Fly around for {timerSeconds} seconds" : "Complete the mission in {timerSeconds} seconds")}";
     }

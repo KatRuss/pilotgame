@@ -10,30 +10,30 @@ public class PlaneObject : ScriptableObject
     [SerializeField] PlaneEngineObject planeEngine;
     [SerializeField] PlaneFuelTankObject planeFuelTank;
 
-    public float getCurrentTargetThrust(float throttle)
+    public float GetCurrentTargetThrust(float throttle)
     {
         float cThrottle = Mathf.Clamp(throttle, 0.0f, 1.0f);
         return Mathf.SmoothStep(0.0f, planeEngine.thrustMaximum, cThrottle);
     }
 
-    public float getTotalWeight(float currentFuel)
+    public float GetTotalWeight(float currentFuel)
     {
         return planeEngine.weight +
                 planeBody.weight +
                 planeFuelTank.weight +
                 (planeFuelTank.fuelWeightPerLitre * currentFuel);
     }
-    public float getResponsiveness()
+    public float GetResponsiveness()
     {
         return planeBody.responsiveness;
     }
 
-    public float getAcceleration()
+    public float GetAcceleration()
     {
         return planeEngine.accelerationForce;
     }
 
-    public float getThrustMaximum()
+    public float GetThrustMaximum()
     {
         return planeEngine.thrustMaximum;
     }
@@ -43,12 +43,12 @@ public class PlaneObject : ScriptableObject
         return planeBody.lift;
     }
 
-    public float getFuelMax()
+    public float GetFuelMax()
     {
         return planeFuelTank.fuelMaximum;
     }
 
-    public float getNewFuelLevel(float currentFuel, float currentThrottle)
+    public float GetNewFuelLevel(float currentFuel, float currentThrottle)
     {
         return Mathf.Clamp(
             currentFuel - ((planeEngine.fuelBurnRate + planeEngine.fuelBurnThrottleRate * currentThrottle) * Time.deltaTime),
@@ -57,7 +57,7 @@ public class PlaneObject : ScriptableObject
         );
     }
 
-    public float getNewStallThrust(float currentStallThrust)
+    public float GetNewStallThrust(float currentStallThrust)
     {
         return Mathf.Clamp(
             currentStallThrust - (planeBody.stallThrustBurnRate * Time.deltaTime),
@@ -91,7 +91,7 @@ public class PlaneObject : ScriptableObject
         return planeFuelTank;
     }
 
-    public void setPlaneFuelTank(PlaneFuelTankObject pf)
+    public void SetPlaneFuelTank(PlaneFuelTankObject pf)
     {
         planeFuelTank = pf;
     }

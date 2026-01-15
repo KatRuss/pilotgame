@@ -8,6 +8,6 @@ public class SliderOption : Option {
     public int valueMin;
     public int valueMax;
 
-    public override void setOption(int value) { optionToMonitor.value = math.clamp(value,valueMin,valueMax); }
+    public override void SetOption(int value) { optionToMonitor.value = math.clamp(value,valueMin,valueMax); }
 
 }

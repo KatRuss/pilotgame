@@ -5,12 +5,12 @@ public class SkydiverObjective : Objective
 {
     [SerializeField] int skydiverNum;
 
-    public override bool isObjectiveComplete(LiveGameData liveData)
+    public override bool IsObjectiveComplete(LiveGameData liveData)
     {
         return liveData.skydiversDropped >= skydiverNum;
     }
 
-    public override string getObjectiveString()
+    public override string GetObjectiveString()
     {
         return $"Fly the Skydivers to {skydiverNum} locations";
     }

@@ -131,7 +131,7 @@ public class MainMenuController : MonoBehaviour
         { liveData.playerPlane.SetPlaneEngine(planeEngines[planeEngineIndex]); }
 
     public void updatePlayerFuelTank()
-        {liveData.playerPlane.setPlaneFuelTank(planeFuelTanks[planeEngineIndex]);}
+        {liveData.playerPlane.SetPlaneFuelTank(planeFuelTanks[planeEngineIndex]);}
 
     public void updatePlayerBody()
         {liveData.playerPlane.SetPlaneBody(planeBodies[planeBodyIndex]);}
