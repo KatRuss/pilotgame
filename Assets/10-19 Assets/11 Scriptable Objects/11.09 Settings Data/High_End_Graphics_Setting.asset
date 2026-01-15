@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192b0e4b6e14442bebd68c70bb2347b4, type: 3}
+  m_Name: High_End_Graphics_Setting
+  m_EditorClassIdentifier: Assembly-CSharp::BoolOption
+  optionTitle: Use High End Graphics
+  active: 0
+  optionToMonitor: {fileID: 11400000, guid: 87216f7b3ed2b4d42b7bcf74c8a12b63, type: 2}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionItem
   planePart: {fileID: 11400000, guid: 3c98f0cf15f7c4b80a396af9f13ae618, type: 2}
   meritsToUnlock: 0
-  unlocked: 0
+  unlocked: 1

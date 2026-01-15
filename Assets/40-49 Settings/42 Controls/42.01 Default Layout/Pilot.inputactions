@@ -41,6 +41,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "debug",
+                    "type": "Button",
+                    "id": "63f58eec-8a9e-4ad0-977e-df2252b86475",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -111,6 +120,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "6ff5dd2b-b6e0-4021-bf40-facaa9f65f66",
+                    "path": "<Gyroscope>/angularVelocity/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "yaw",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "qwerty",
                     "id": "0c950a69-3567-43dd-bf75-12462995c6c7",
                     "path": "1DAxis",
@@ -177,6 +197,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "a53f8f0a-a580-4713-9e74-de89f2ac441d",
+                    "path": "<Gyroscope>/angularVelocity/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "pitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
                     "id": "5880ab52-7224-42af-941e-d7d921f19fae",
                     "path": "1DAxis",
@@ -217,6 +248,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9705db9d-ae48-4897-953c-8eb3c89ff94b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "debug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96a9e3f2-3dde-47f1-a994-a646de6012ff",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "debug",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

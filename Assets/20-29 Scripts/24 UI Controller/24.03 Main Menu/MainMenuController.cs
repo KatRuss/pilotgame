@@ -11,6 +11,9 @@ public class MainMenuController : MonoBehaviour
     [Header("Menu Objects")]
     [SerializeField] GameObject mainMenu;
 
+    [Header("Options Menu Objects")]
+    [SerializeField] GameObject optionsMenu;
+
     [Header("Level Select Objects")]
     [SerializeField] GameObject levelCard;
     [SerializeField] GameObject levelSelectMenu;
@@ -68,6 +71,7 @@ public class MainMenuController : MonoBehaviour
         levelSelectMenu.SetActive(true);
         hangerMenu.SetActive(false);
         mainMenu.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 
     public void showMainMenu()
@@ -75,6 +79,7 @@ public class MainMenuController : MonoBehaviour
         levelSelectMenu.SetActive(false);
         hangerMenu.SetActive(false);
         mainMenu.SetActive(true);
+        optionsMenu.SetActive(false);
     }
 
     public void showHangerManu()
@@ -82,11 +87,15 @@ public class MainMenuController : MonoBehaviour
         levelSelectMenu.SetActive(false);
         hangerMenu.SetActive(true);
         mainMenu.SetActive(false);
+        optionsMenu.SetActive(false);
     }
 
     public void showOptionsMenu()
     {
-        Debug.Log("options menu");
+        levelSelectMenu.SetActive(false);
+        hangerMenu.SetActive(false);
+        mainMenu.SetActive(false);
+        optionsMenu.SetActive(true);
     }
 
     public void playLevel()
