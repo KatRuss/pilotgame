@@ -253,17 +253,6 @@
                 },
                 {
                     "name": "",
-                    "id": "9705db9d-ae48-4897-953c-8eb3c89ff94b",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "debug",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "96a9e3f2-3dde-47f1-a994-a646de6012ff",
                     "path": "<Keyboard>/backquote",
                     "interactions": "",

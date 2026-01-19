@@ -55,19 +55,19 @@ Material:
     - _Coast_Point: 0.2
     - _Depth: 6.09
     - _DepthStrength: 0.04
-    - _Displacement: 1
+    - _Displacement: 1.24
     - _Fresnel_Power: 4.34
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _WaveCoastOpacity: 0.7
-    - _WaveDeepOpacity: 0.1
+    - _WaveCoastOpacity: 1.03
+    - _WaveDeepOpacity: 0.2
     - _WaveOpacity: 0.35
-    - _WaveShallowOpacity: 0.5
+    - _WaveShallowOpacity: 0.7
     - _WaveSpeed: 0.1
-    - _Wave_Scale: 2
+    - _Wave_Scale: 20
     m_Colors:
-    - _Coast_Colour: {r: 0.9568626, g: 0.96078426, b: 0.9372549, a: 1}
-    - _Deep_Water: {r: 0.19999987, g: 0.6117647, b: 0.6392157, a: 0.95686275}
-    - _Shallow_Water: {r: 0.5215685, g: 0.8745098, b: 0.9215686, a: 1}
+    - _Coast_Colour: {r: 0.9529412, g: 0.9529412, b: 0.9529412, a: 1}
+    - _Deep_Water: {r: 0.007843138, g: 0.91764706, b: 0.91764706, a: 1}
+    - _Shallow_Water: {r: 0.007843138, g: 0.91764706, b: 0.91764706, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

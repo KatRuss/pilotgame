@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2366334971037449331}
   - component: {fileID: 1001640470257071693}
   - component: {fileID: 5863450262825619433}
-  - component: {fileID: 1646842778170537570}
+  - component: {fileID: 6793105081745026558}
   m_Layer: 5
   m_Name: Joystick
   m_TagString: Untagged
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1646842778170537570
+--- !u!114 &6793105081745026558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,9 +86,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 488769717774293404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d552a80c7fed4dc1ad1d102661b7819, type: 3}
+  m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.OnScreen.OnScreenStick
+  m_MovementRange: 50
+  m_DynamicOriginRange: 100
+  m_ControlPath: <Gamepad>/leftStick
+  m_Behaviour: 0
+  m_UseIsolatedInputActions: 0
+  m_PointerDownAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1ab6f793-9430-4374-813a-2be73f978f2b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  m_PointerMoveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 45a236b6-010b-48c8-9be1-5a3a8ad796e0
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!1 &7137517044178495938
 GameObject:
   m_ObjectHideFlags: 0

@@ -1076,11 +1076,55 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1646842778170537570, guid: 05777353e7e91443e81353c7d5331bbe, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 488769717774293404, guid: 05777353e7e91443e81353c7d5331bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4211395509477815474}
   m_SourcePrefab: {fileID: 100100000, guid: 05777353e7e91443e81353c7d5331bbe, type: 3}
+--- !u!1 &6618808671866017799 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 488769717774293404, guid: 05777353e7e91443e81353c7d5331bbe, type: 3}
+  m_PrefabInstance: {fileID: 6706649417820062107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4211395509477815474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6618808671866017799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.OnScreen.OnScreenStick
+  m_MovementRange: 50
+  m_DynamicOriginRange: 100
+  m_ControlPath: <Gamepad>/leftStick
+  m_Behaviour: 0
+  m_UseIsolatedInputActions: 0
+  m_PointerDownAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d318afff-9a43-4ec5-b735-dbd470aa8946
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  m_PointerMoveAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 33cd761b-01ec-4d29-a62f-33fa09b5c2b1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!224 &9062411243452349928 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2366334971037449331, guid: 05777353e7e91443e81353c7d5331bbe, type: 3}
