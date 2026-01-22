@@ -589,8 +589,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8591939786042486011}
   - component: {fileID: 809060093634553836}
-  - component: {fileID: 5276967761887895440}
   - component: {fileID: 6032925422718827369}
+  - component: {fileID: 3759774031702849216}
+  - component: {fileID: 7936739691253017794}
+  - component: {fileID: 7700296423341345275}
   m_Layer: 0
   m_Name: PlayerPlane
   m_TagString: Untagged
@@ -642,8 +644,43 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &5276967761887895440
-CapsuleCollider:
+--- !u!114 &6032925422718827369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194505084229930826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d117499aba09e45bfa6da2f239304b6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlaneControllerV2
+  plane: {fileID: 11400000, guid: 0c9bedd9dceb84b8ba5335c1f024798d, type: 2}
+  liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
+--- !u!65 &3759774031702849216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4194505084229930826}
+  m_Material: {fileID: 13400000, guid: 70a44c7a6e6534b3f8414c619c2817a8, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.55, y: 4, z: 17.38}
+  m_Center: {x: 0, y: 0, z: -1.19}
+--- !u!65 &7936739691253017794
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -660,25 +697,30 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2
-  m_Height: 11
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.6}
---- !u!114 &6032925422718827369
-MonoBehaviour:
+  serializedVersion: 3
+  m_Size: {x: 9.33, y: 1.04, z: 3.29}
+  m_Center: {x: 6.66, y: 2.1, z: 2.5}
+--- !u!65 &7700296423341345275
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4194505084229930826}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d117499aba09e45bfa6da2f239304b6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlaneControllerV2
-  plane: {fileID: 11400000, guid: 0c9bedd9dceb84b8ba5335c1f024798d, type: 2}
-  liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
+  serializedVersion: 3
+  m_Size: {x: 9.33, y: 1.04, z: 3.29}
+  m_Center: {x: -6.66, y: 2.1, z: 2.5}
 --- !u!1 &5061126083903003575
 GameObject:
   m_ObjectHideFlags: 0

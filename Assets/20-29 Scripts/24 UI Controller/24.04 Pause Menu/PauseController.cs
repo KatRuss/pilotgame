@@ -34,6 +34,8 @@ public class PauseController : MonoBehaviour
 
     public void UnloadLevel()
     {
+        liveData.gameIsPaused = false;
+        liveData.ResetAllValues();
         levelToLoad.value = -1;
     }
 }

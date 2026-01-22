@@ -53,24 +53,24 @@ public class LiveGameData : ScriptableObject
 
     private void OnEnable()
     {
-        resetAllValues();
+        ResetAllValues();
     }
 
     // Resets
-    void resetAllValues()
+    public void ResetAllValues()
     {
-        resetPlayerData();
-        resetMissionData();
-        resetGameData();
-        resetObjectiveData();
+        ResetPlayerData();
+        ResetMissionData();
+        ResetGameData();
+        ResetObjectiveData();
     }
 
-    void resetGameData()
+    void ResetGameData()
     {
         gameIsPaused = false;
     }
 
-    void resetPlayerData()
+    void ResetPlayerData()
     {
         throttle = 0.0f;
         turn = 0.0f;
@@ -83,7 +83,7 @@ public class LiveGameData : ScriptableObject
         currentStallThrust = 0.0f;
     }
 
-    void resetMissionData()
+    void ResetMissionData()
     {
         activeMission = null;
         missionComplete = false;
@@ -91,7 +91,7 @@ public class LiveGameData : ScriptableObject
         timer = 0.0f;
     }
 
-    void resetObjectiveData()
+    void ResetObjectiveData()
     {
         ringsPassed = 0;
         merits = 0;

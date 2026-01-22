@@ -39,6 +39,8 @@ public class MissionController : MonoBehaviour
     {
         GameObject player = Instantiate(playerObject, liveData.activeMission.GetPlayerStartingTransform().position, Quaternion.identity);
         cam.GetComponent<CameraController>().AddPov(player.transform.Find("CameraPosition"), true);
+        cam.transform.position = player.transform.position;
+        player.transform.Rotate(new Vector3(0,liveData.activeMission.GetPlayerStartingTransform().eulerAngles.y,0));
 
         playerScene = SceneManager.CreateScene("S-Player-Temp");
         SceneManager.MoveGameObjectToScene(player,playerScene);
@@ -52,7 +54,7 @@ public class MissionController : MonoBehaviour
 
     void Update()
     {
-        if (!liveData.missionFailed && !liveData.missionComplete)
+        if (!liveData.missionFailed && !liveData.missionComplete && liveData.activeMission != null)
         {
             PrimaryMissionCheck();
             SecondaryMissionCheck();
@@ -65,19 +67,16 @@ public class MissionController : MonoBehaviour
     {
         for (int i = 0; i < liveData.activeMission.primaryObjectives.Length; i++)
         {
-            if (!IsMissionFailed())
-            {
-                if (IsMissionComplete())
-                {
-                    liveData.missionComplete = true;
-                }
-            }
-            else
+            if (IsMissionFailed())
             {
                 Debug.Log("mission failed");
                 liveData.missionFailed = true;
             }
+
+            if (IsMissionComplete()){ liveData.missionComplete = true; }
         }
+
+
 
     }
 

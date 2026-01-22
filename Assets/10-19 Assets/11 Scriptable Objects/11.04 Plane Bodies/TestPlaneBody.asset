@@ -17,6 +17,6 @@ MonoBehaviour:
   weight: 250
   modelMenuName: planebody
   responsiveness: 1.85
-  lift: 135
-  minimumStallThrust: 400
+  lift: 200
+  minimumStallThrust: 4000
   stallThrustBurnRate: 0.00001

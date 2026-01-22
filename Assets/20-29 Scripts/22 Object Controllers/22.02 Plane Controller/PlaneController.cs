@@ -1,3 +1,4 @@
+using System.Data.Common;
 using UnityEngine;
 
 public class PlaneController : MonoBehaviour
@@ -16,6 +17,9 @@ public class PlaneController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         liveData.fuel = plane.GetFuelMax();
+        rollAngle = transform.eulerAngles.z;
+        pitchAngle = transform.eulerAngles.x;
+        turnAngle = transform.eulerAngles.y;
     }
 
     void HandleThrottle()
@@ -46,14 +50,13 @@ public class PlaneController : MonoBehaviour
         //Modify Fuel
         liveData.fuel = plane.GetNewFuelLevel(liveData.fuel, liveData.throttle);
 
-        if (liveData.fuel <= 0 && !liveData.planeStalling)
-            liveData.planeStalling = true;
-            liveData.currentStallThrust = rb.linearVelocity.magnitude;
+        // Plane Stalling
+        liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.GetThrustMaximum() * liveData.throttle, Time.deltaTime * 3);
+
+        liveData.planeStalling = (liveData.fuel <= 0 || liveData.throttle == 0) && liveData.distanceToGround >= 10.0;
 
         if (liveData.planeStalling)
-        {
-            liveData.currentStallThrust = plane.GetNewStallThrust(liveData.currentStallThrust);
-        }
+            liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.GetStallMinimum(), Time.deltaTime * plane.GetStallBurnRate());
 
         // Modify Altitude
         liveData.altitude = transform.position.y;
@@ -94,9 +97,13 @@ public class PlaneController : MonoBehaviour
 
         rb.mass =liveData.currentWeight;
 
-        if (liveData.fuel > 0)
-            rb.AddForce(transform.forward * plane.GetThrustMaximum() * liveData.throttle);
-        else
+        if (!liveData.planeStalling)
+        {
+            print(plane.GetThrustMaximum() * liveData.throttle);
+            rb.AddForce(liveData.throttle * plane.GetThrustMaximum() * transform.forward);
+   
+        }
+         else
             rb.AddForce(transform.forward * liveData.currentStallThrust);
 
         if (liveData.distanceToGround > 3)

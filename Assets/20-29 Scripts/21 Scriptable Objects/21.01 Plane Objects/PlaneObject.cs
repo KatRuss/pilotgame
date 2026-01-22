@@ -57,13 +57,14 @@ public class PlaneObject : ScriptableObject
         );
     }
 
-    public float GetNewStallThrust(float currentStallThrust)
+    public float GetStallMinimum()
     {
-        return Mathf.Clamp(
-            currentStallThrust - (planeBody.stallThrustBurnRate * Time.deltaTime),
-            planeBody.minimumStallThrust,
-            1000
-        );
+        return planeBody.minimumStallThrust;
+    }
+
+    public float GetStallBurnRate()
+    {
+        return planeBody.stallThrustBurnRate;
     }
 
     public PlaneBodyObject GetPlaneBody()

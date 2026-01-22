@@ -18,21 +18,22 @@ MonoBehaviour:
   turn: 0
   pitch: 0
   throttleActionValue: 0
-  currentWeight: 0
-  distanceToGround: 0
-  altitude: 0
-  fuel: 0
-  currentStallThrust: 0
+  currentWeight: 346.2887
+  distanceToGround: 2.072309
+  altitude: 26.931171
+  fuel: 92.576805
+  currentStallThrust: 400
   planeStalling: 0
-  activeMission: {fileID: 0}
+  activeMission: {fileID: 11400000, guid: cc7079d7052dc48d38af9b8cb434d8ef, type: 2}
   missionComplete: 0
   missionFailed: 0
-  timer: 0
+  timer: 26.503798
   ringsPassed: 0
   GoldStarCollected: 0
   skydiversDropped: 0
-  timeSpentTurning: 0
+  timeSpentTurning: 2.219838
   gameIsPaused: 0
+  debugOn: 0
   merits: 0
   headerToShow: 
   messageToShow: 

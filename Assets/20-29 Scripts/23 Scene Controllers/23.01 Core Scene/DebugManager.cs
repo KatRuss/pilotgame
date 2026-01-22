@@ -7,6 +7,10 @@ public class DebugManager : MonoBehaviour
 
     bool debugActivated = false;
 
+    private void Start() {
+        liveGameData.debugOn = false;
+    }
+
     void Update()
     {
         if (debugActivated != liveGameData.debugOn)
