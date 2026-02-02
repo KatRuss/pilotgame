@@ -41,7 +41,7 @@ public class GameEndController : MonoBehaviour
         for (int i = 0; i < liveData.activeMission.secondaryObjectives.Length; i++)
         {
             Objective objective = liveData.activeMission.secondaryObjectives[i];
-            string objectiveComplete = liveData.activeMission.secondaryObjectives[i] ? "Pass" : "Not Yet!";
+            string objectiveComplete = liveData.activeMission.secondayObjectivesCompleted[i] ? "Pass" : "Not Yet!";
 
             secondaryObjectiveText.text += $"\n {objective.GetObjectiveString()}: {objectiveComplete}";
         }
