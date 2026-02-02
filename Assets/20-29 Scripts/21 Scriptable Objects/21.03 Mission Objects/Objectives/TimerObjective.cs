@@ -31,6 +31,6 @@ public class TimerObjective : Objective
     }
     public override string GetObjectiveString()
     {
-        return $"{(completeWhenElapsed ? "Fly around for {timerSeconds} seconds" : "Complete the mission in {timerSeconds} seconds")}";
+        return $"{(completeWhenElapsed ? $"Fly around for {timerSeconds} seconds" : $"Complete the mission in {timerSeconds} seconds")}";
     }
 }

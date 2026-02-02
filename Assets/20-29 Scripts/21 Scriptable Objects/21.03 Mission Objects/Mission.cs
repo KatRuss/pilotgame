@@ -30,7 +30,7 @@ public class Mission : ScriptableObject
     [Header("Progression Info")]
     public bool[] primaryObjectiveCompleted = new bool[3];
     public bool[] secondayObjectivesCompleted = new bool[3];
-    public bool[] secondaryObjectivesFailed = new bool[3];
+
 
     [Header("Debug Info")]
     public bool DEBUG_AUTO_COMPLETE;
@@ -48,14 +48,12 @@ public class Mission : ScriptableObject
         {
             primaryObjectiveCompleted = new bool[3] { true, true, true };
             secondayObjectivesCompleted = new bool[3] { true, true, true };
-            secondaryObjectivesFailed = new bool[3] { false, false, false };
 
         }
         if (DEBUG_AUTO_RESET)
         {
             primaryObjectiveCompleted = new bool[3] { false, false, false };
             secondayObjectivesCompleted = new bool[3] { false, false, false };
-            secondaryObjectivesFailed = new bool[3] { false, false, false };
         }
     }
 
@@ -63,7 +61,6 @@ public class Mission : ScriptableObject
     {
         primaryObjectiveCompleted = new bool[3];
         secondayObjectivesCompleted = new bool[3];
-        secondaryObjectivesFailed = new bool[3];
     }
 
 }

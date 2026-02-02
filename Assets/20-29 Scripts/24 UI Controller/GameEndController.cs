@@ -37,11 +37,11 @@ public class GameEndController : MonoBehaviour
             primaryObjectiveText.text += $"\n {objective.GetObjectiveString()}: {objectiveComplete}";
         }
 
-        // Primary Objectives 
+        // Secondary Objectives 
         for (int i = 0; i < liveData.activeMission.secondaryObjectives.Length; i++)
         {
             Objective objective = liveData.activeMission.secondaryObjectives[i];
-            string objectiveComplete = liveData.activeMission.secondaryObjectives[i] ? "Pass" : "Fail";
+            string objectiveComplete = liveData.activeMission.secondaryObjectives[i] ? "Pass" : "Not Yet!";
 
             secondaryObjectiveText.text += $"\n {objective.GetObjectiveString()}: {objectiveComplete}";
         }

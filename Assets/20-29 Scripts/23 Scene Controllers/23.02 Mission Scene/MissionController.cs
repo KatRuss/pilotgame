@@ -76,24 +76,15 @@ public class MissionController : MonoBehaviour
             if (IsMissionComplete()){ liveData.missionComplete = true; }
         }
 
-
-
     }
 
     void SecondaryMissionCheck()
     {
         for (int i = 0; i < liveData.activeMission.secondaryObjectives.Length; i++)
         {
-            if (!liveData.activeMission.secondaryObjectives[i].IsObjectiveFailed(liveData))
+            if (liveData.activeMission.secondaryObjectives[i].IsObjectiveComplete(liveData))
             {
-                if (liveData.activeMission.secondaryObjectives[i].IsObjectiveComplete(liveData) && !liveData.activeMission.secondaryObjectivesFailed[i])
-                {
-                    liveData.activeMission.secondayObjectivesCompleted[i] = true;
-                }
-            }
-            else
-            {
-                liveData.activeMission.secondaryObjectivesFailed[i] = true;
+                liveData.activeMission.secondayObjectivesCompleted[i] = true;
             }
         }
     }
@@ -114,11 +105,16 @@ public class MissionController : MonoBehaviour
     public bool IsMissionComplete()
     {
         // Run through all Primary Objectivies in mission data, then determine if all of them are complete.
-        foreach (Objective pObjective in liveData.activeMission.primaryObjectives)
+        for (int i = 0; i < liveData.activeMission.primaryObjectives.Length; i++)
         {
+            Objective pObjective = liveData.activeMission.primaryObjectives[i];
             if (!pObjective.IsObjectiveComplete(liveData))
             {
                 return false;
+            }
+            else
+            {
+                liveData.activeMission.primaryObjectiveCompleted[i] = true;
             }
         }
         return true;
