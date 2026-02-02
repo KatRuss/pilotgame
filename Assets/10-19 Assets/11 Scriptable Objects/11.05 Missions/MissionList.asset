@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: MissionList
   m_EditorClassIdentifier: Assembly-CSharp::MissionList
   missions:
+  - {fileID: 11400000, guid: 8224ebd35d8d147db9f9a6faf9846141, type: 2}
   - {fileID: 11400000, guid: cc7079d7052dc48d38af9b8cb434d8ef, type: 2}

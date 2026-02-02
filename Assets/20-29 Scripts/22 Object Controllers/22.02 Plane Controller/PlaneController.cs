@@ -1,5 +1,7 @@
 using System.Data.Common;
+using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlaneController : MonoBehaviour
 {
@@ -50,13 +52,15 @@ public class PlaneController : MonoBehaviour
         //Modify Fuel
         liveData.fuel = plane.GetNewFuelLevel(liveData.fuel, liveData.throttle);
 
-        // Plane Stalling
-        liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.GetThrustMaximum() * liveData.throttle, Time.deltaTime * 3);
-
+        
+        // Plane Stallings
         liveData.planeStalling = (liveData.fuel <= 0 || liveData.throttle == 0) && liveData.distanceToGround >= 10.0;
 
         if (liveData.planeStalling)
             liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.GetStallMinimum(), Time.deltaTime * plane.GetStallBurnRate());
+        else
+            liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.GetThrustMaximum() * liveData.throttle * 3f, Time.deltaTime * 3);
+
 
         // Modify Altitude
         liveData.altitude = transform.position.y;
@@ -85,23 +89,33 @@ public class PlaneController : MonoBehaviour
         return Quaternion.Euler(pitchAngle, turnAngle, rollAngle);
     }
 
+    bool SetGravity()
+    {
+        if (liveData.planeStalling || IsTakingOff())
+            return true;
+        
+        return false;
+    }
+
+    bool IsTakingOff()
+    {
+        return liveData.distanceToGround <= 10 || rb.linearVelocity.magnitude <= 10;
+    }
+
     void FixedUpdate()
     {
         //DistanceToGround Check
         RaycastHit groundHit;
         if (Physics.Raycast(transform.position, Vector3.down, out groundHit, Mathf.Infinity))
         {
-            Debug.DrawRay(transform.position, Vector3.down * groundHit.distance, Color.yellow);
             liveData.distanceToGround = groundHit.distance;
         }
 
-        rb.mass =liveData.currentWeight;
+        rb.mass = liveData.currentWeight;
 
         if (!liveData.planeStalling)
         {
-            print(plane.GetThrustMaximum() * liveData.throttle);
             rb.AddForce(liveData.throttle * plane.GetThrustMaximum() * transform.forward);
-   
         }
          else
             rb.AddForce(transform.forward * liveData.currentStallThrust);
@@ -109,14 +123,11 @@ public class PlaneController : MonoBehaviour
         if (liveData.distanceToGround > 3)
             transform.rotation = CalculatePlaneAngles();
 
+
         //upforce and gravity only when you're either taking off or landing.
-        if (liveData.distanceToGround <= 10 || rb.linearVelocity.magnitude <= 10)
-        {
-            rb.useGravity = true;
-            rb.AddForce(Vector3.up * rb.linearVelocity.magnitude * plane.getLift());
-        } else
-        {
-            rb.useGravity = false;
-        }
+        if (IsTakingOff())
+            rb.AddForce(plane.getLift() * rb.linearVelocity.magnitude * Vector3.up);
+        
+        rb.useGravity = SetGravity();
     }
 }

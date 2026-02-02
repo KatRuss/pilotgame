@@ -19,4 +19,4 @@ MonoBehaviour:
   responsiveness: 1.85
   lift: 200
   minimumStallThrust: 4000
-  stallThrustBurnRate: 0.00001
+  stallThrustBurnRate: 0.0000001
