@@ -26,4 +26,4 @@ MonoBehaviour:
   primaryObjectiveCompleted: 000000
   secondayObjectivesCompleted: 000000
   DEBUG_AUTO_COMPLETE: 0
-  DEBUG_AUTO_RESET: 0
+  DEBUG_AUTO_RESET: 1
