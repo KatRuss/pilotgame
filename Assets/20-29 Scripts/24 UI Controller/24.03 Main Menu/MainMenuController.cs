@@ -7,6 +7,8 @@ public class MainMenuController : MonoBehaviour
 {
 
     [SerializeField] LiveGameData liveData;
+    [SerializeField] SharedInt levelToShow;
+    [SerializeField] SharedInt levelToLoad;
 
     [Header("Menu Objects")]
     [SerializeField] GameObject mainMenu;
@@ -18,6 +20,14 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject levelCard;
     [SerializeField] GameObject levelSelectMenu;
     [SerializeField] GameObject levelListHolder;
+    int levelCurrentlyShowing = -1;
+
+    [Header("Level Info Objects")]
+    [SerializeField] TextMeshProUGUI levelTitleText;
+    [SerializeField] TextMeshProUGUI levelInfoText;
+    [SerializeField] TextMeshProUGUI primaryObjectivesText;
+    [SerializeField] TextMeshProUGUI secondaryObjectivesText;
+
 
     [Header("Hanger Objects")]
     [SerializeField] GameObject hangerMenu;
@@ -55,6 +65,7 @@ public class MainMenuController : MonoBehaviour
         planeBodyName.text = planeBodies[planeBodyIndex].partName;
         planeEngineName.text = planeEngines[planeEngineIndex].partName;
         planeFuelName.text = planeFuelTanks[planeFuelTankIndex].partName;
+        PopulateLevelInformation();
     }
 
     public void populateLevelList()
@@ -66,7 +77,38 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
-    public void showLevelMenu()
+    public void PopulateLevelInformation()
+    {
+        if (levelToShow.value != -1 || levelToShow.value != levelCurrentlyShowing)
+        {
+            primaryObjectivesText.text = "";
+            secondaryObjectivesText.text = "";
+
+            Mission levelInfo = missionList.missions[levelToShow.value];
+            levelTitleText.text = levelInfo.menuName;
+            levelInfoText.text = levelInfo.menuDescription;
+
+            // Primary Objectives 
+            for (int i = 0; i < levelInfo.primaryObjectives.Length; i++)
+            {
+                Objective objective = levelInfo.primaryObjectives[i];
+                primaryObjectivesText.text += $"\n {objective.GetObjectiveString()}";
+            }
+
+            // Secondary Objectives 
+            for (int i = 0; i < levelInfo.secondaryObjectives.Length; i++)
+            {
+                Objective objective = levelInfo.secondaryObjectives[i];
+                string objectiveComplete = levelInfo.secondayObjectivesCompleted[i] ? "Pass" : "Not Yet!";
+
+                secondaryObjectivesText.text += $"\n {objective.GetObjectiveString()}: {objectiveComplete}";
+            }
+
+            levelCurrentlyShowing = levelToShow.value;
+        }
+    }
+
+    public void ShowLevelMenu()
     {
         levelSelectMenu.SetActive(true);
         hangerMenu.SetActive(false);
@@ -74,7 +116,7 @@ public class MainMenuController : MonoBehaviour
         optionsMenu.SetActive(false);
     }
 
-    public void showMainMenu()
+    public void ShowMainMenu()
     {
         levelSelectMenu.SetActive(false);
         hangerMenu.SetActive(false);
@@ -82,7 +124,7 @@ public class MainMenuController : MonoBehaviour
         optionsMenu.SetActive(false);
     }
 
-    public void showHangerManu()
+    public void ShowHangerManu()
     {
         levelSelectMenu.SetActive(false);
         hangerMenu.SetActive(true);
@@ -90,7 +132,7 @@ public class MainMenuController : MonoBehaviour
         optionsMenu.SetActive(false);
     }
 
-    public void showOptionsMenu()
+    public void ShowOptionsMenu()
     {
         levelSelectMenu.SetActive(false);
         hangerMenu.SetActive(false);
@@ -98,9 +140,9 @@ public class MainMenuController : MonoBehaviour
         optionsMenu.SetActive(true);
     }
 
-    public void playLevel()
+    public void PlayLevel()
     {
-        Debug.Log("play level");
+        levelToLoad.value = levelToShow.value;
     }
 
     void populateUnlockLists()

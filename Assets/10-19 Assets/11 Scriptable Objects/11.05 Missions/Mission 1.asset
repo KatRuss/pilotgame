@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mission 1
   m_EditorClassIdentifier: Assembly-CSharp::Mission
   menuName: Mission 1
-  menuDescription: 
+  menuDescription: Start your flying career with a small tour around the island!
   missionPrefab: {fileID: 4155037558700497036, guid: 6f7d49b5ec1fd40e88912ea19d446b0b, type: 3}
   timeOfDay: 20
   startingThrottle: 0
@@ -22,7 +22,7 @@ MonoBehaviour:
   secondaryObjectives:
   - {fileID: 11400000, guid: 6660164775f32411595d6bd303f66dc3, type: 2}
   - {fileID: 11400000, guid: f89ea610662bd4baaa7e7952f16e6c6f, type: 2}
-  primaryObjectiveCompleted: 010000
-  secondayObjectivesCompleted: 010000
+  primaryObjectiveCompleted: 000000
+  secondayObjectivesCompleted: 000000
   DEBUG_AUTO_COMPLETE: 0
   DEBUG_AUTO_RESET: 1

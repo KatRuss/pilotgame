@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelButtonController : MonoBehaviour
 {
 
-    [SerializeField] SharedInt levelToLoad;
+    [SerializeField] SharedInt levelToShow;
     [SerializeField] TextMeshProUGUI titleText;
     [SerializeField] TextMeshProUGUI numberText;
     [SerializeField] TextMeshProUGUI meritsText;
@@ -22,9 +22,9 @@ public class LevelButtonController : MonoBehaviour
         //meritsText.text = "Dunno right now";
     }
 
-    public void SetLevelToLoad()
+    public void SetLevelToShow()
     {
-        levelToLoad.value = missionNumber;
+        levelToShow.value = missionNumber;
     }
 
 }

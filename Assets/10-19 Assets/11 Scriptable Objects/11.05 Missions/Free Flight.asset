@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Free Flight
   m_EditorClassIdentifier: Assembly-CSharp::Mission
   menuName: Free Flight
-  menuDescription: 
+  menuDescription: Just have some time in the skies!
   missionPrefab: {fileID: 8189355626235400755, guid: 6cddd8667ad834f77895a760760d3928, type: 3}
   timeOfDay: 20
   startingThrottle: 70
@@ -22,6 +22,5 @@ MonoBehaviour:
   secondaryObjectives: []
   primaryObjectiveCompleted: 000000
   secondayObjectivesCompleted: 000000
-  secondaryObjectivesFailed: 000000
   DEBUG_AUTO_COMPLETE: 0
   DEBUG_AUTO_RESET: 0

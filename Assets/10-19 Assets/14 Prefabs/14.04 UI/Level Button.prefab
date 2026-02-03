@@ -127,7 +127,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7598325202210596130}
         m_TargetAssemblyTypeName: LevelButtonController, Assembly-CSharp
-        m_MethodName: SetLevelToLoad
+        m_MethodName: SetLevelToShow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c3848511742480f8ff54909f146cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  levelToLoad: {fileID: 11400000, guid: 18cf4f7baf26b47baa18ea66f59ebda2, type: 2}
+  levelToShow: {fileID: 11400000, guid: aedf9ff9afa7747deac487327b183ea9, type: 2}
   titleText: {fileID: 5803701565668834040}
   numberText: {fileID: 0}
   meritsText: {fileID: 0}
