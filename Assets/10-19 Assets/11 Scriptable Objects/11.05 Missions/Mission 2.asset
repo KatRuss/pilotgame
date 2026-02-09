@@ -23,6 +23,7 @@ MonoBehaviour:
   secondaryObjectives:
   - {fileID: 11400000, guid: 49d87ac891e5c4ad787703788d3eb739, type: 2}
   - {fileID: 11400000, guid: cfb758981cbff43de9f7d7fced7af955, type: 2}
+  - {fileID: 11400000, guid: 4de770d02580341a495c7cf03ddb6d7d, type: 2}
   primaryObjectiveCompleted: 000000
   secondayObjectivesCompleted: 000000
   DEBUG_AUTO_COMPLETE: 0

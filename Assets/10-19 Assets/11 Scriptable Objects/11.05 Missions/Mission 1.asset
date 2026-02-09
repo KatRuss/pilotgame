@@ -16,7 +16,7 @@ MonoBehaviour:
   menuDescription: Start your flying career with a small tour around the island!
   missionPrefab: {fileID: 4155037558700497036, guid: 6f7d49b5ec1fd40e88912ea19d446b0b, type: 3}
   timeOfDay: 20
-  startingThrottle: 40.4
+  startingThrottle: 0
   primaryObjectives:
   - {fileID: 11400000, guid: be1d618880b9f4a7bac1581688d9d0ba, type: 2}
   secondaryObjectives:
