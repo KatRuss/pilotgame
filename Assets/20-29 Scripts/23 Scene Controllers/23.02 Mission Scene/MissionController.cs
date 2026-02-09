@@ -32,6 +32,7 @@ public class MissionController : MonoBehaviour
         {
             SpawnPlayer(camera);
             liveData.playerActive = true;
+            liveData.throttle = liveData.activeMission.startingThrottle;
         }
     }
 

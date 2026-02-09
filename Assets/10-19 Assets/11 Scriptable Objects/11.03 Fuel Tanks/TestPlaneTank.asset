@@ -16,4 +16,4 @@ MonoBehaviour:
   partDescription: 
   weight: 0
   fuelMaximum: 100
-  fuelWeightPerLitre: 0.5
+  fuelWeightPerLitre: 2.5

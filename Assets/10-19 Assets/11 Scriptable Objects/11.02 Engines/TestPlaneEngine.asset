@@ -15,7 +15,7 @@ MonoBehaviour:
   partName: Starter Engine
   partDescription: 
   weight: 50
-  thrustMaximum: 350
+  thrustMaximum: 1000
   accelerationForce: 0.2
   decelerationForce: 0.2
   fuelBurnRate: 0.05
