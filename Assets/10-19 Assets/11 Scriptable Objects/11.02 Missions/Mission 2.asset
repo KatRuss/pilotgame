@@ -18,7 +18,7 @@ MonoBehaviour:
   missionPrefab: {fileID: 2615298459097881261, guid: 0ffef08bc1cbe464296a43c7e288bdf6, type: 3}
   timeOfDay: -5
   startingThrottle: 0
-  startingFuel: 100
+  startingFuel: 70
   primaryObjectives:
   - {fileID: 11400000, guid: df681cc89b2d846caba526153e874a7e, type: 2}
   secondaryObjectives:

@@ -49,6 +49,6 @@ public class AltitudeObjective : Objective {
 
     public override string GetObjectiveString()
     {
-        return $"Don't go {(altitudeType == AltitudeType.Above ? "above" : "under")} {desiredAltitude} altitude.";
+        return $"Don't go {(altitudeType == AltitudeType.Above ? "under" : "above")} {desiredAltitude} altitude.";
     }
 }

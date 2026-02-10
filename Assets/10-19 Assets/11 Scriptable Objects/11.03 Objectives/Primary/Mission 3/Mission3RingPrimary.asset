@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d06c052c33a4760803c6f98f88e5da, type: 3}
   m_Name: Mission3RingPrimary
   m_EditorClassIdentifier: Assembly-CSharp::RingObjective
-  NumRingsToPassThrough: 15
+  NumRingsToPassThrough: 11

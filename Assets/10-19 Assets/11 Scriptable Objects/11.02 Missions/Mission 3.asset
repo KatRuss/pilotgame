@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d20cf1efaa8d44c29f27bbb8c2ab42b, type: 3}
   m_Name: Mission 3
   m_EditorClassIdentifier: Assembly-CSharp::Mission
-  menuName: 
+  menuName: Baloon Party
   menuDescription: 
-  missionPrefab: {fileID: 0}
+  missionPrefab: {fileID: 460981707704395826, guid: 62564922a08bb4c649ebb7f008fcb089, type: 3}
   timeOfDay: -5
-  startingThrottle: 0
+  startingThrottle: 50
+  startingFuel: 100
   primaryObjectives:
   - {fileID: 11400000, guid: 7c7d3e5898d7e4401a2336360908c8cd, type: 2}
   - {fileID: 11400000, guid: 399ab3021311648ec8b19d569e7361d4, type: 2}
@@ -24,6 +25,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87b0340ad340849b9a130df873ee5135, type: 2}
   primaryObjectiveCompleted: 000000
   secondayObjectivesCompleted: 000000
-  secondaryObjectivesFailed: 000000
   DEBUG_AUTO_COMPLETE: 0
   DEBUG_AUTO_RESET: 0
