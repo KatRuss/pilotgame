@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d117499aba09e45bfa6da2f239304b6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaneControllerV2
-  plane: {fileID: 11400000, guid: 0c9bedd9dceb84b8ba5335c1f024798d, type: 2}
+  plane: {fileID: 11400000, guid: 07c66806f41954d8dad836f3c3df64c8, type: 2}
   liveData: {fileID: 11400000, guid: a5f2732371ba34ccc9f814191ff9219f, type: 2}
 --- !u!65 &3759774031702849216
 BoxCollider:

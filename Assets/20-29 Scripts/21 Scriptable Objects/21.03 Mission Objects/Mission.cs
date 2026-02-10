@@ -21,6 +21,7 @@ public class Mission : ScriptableObject
     
     [Header("Player Overides")]
     [Range(0.0f, 100.0f)] public float startingThrottle = 0.0f;
+    [Range(20, 120)] public int startingFuel = 100;
 
     [Header("Mission Info")]
     public Objective[] primaryObjectives;

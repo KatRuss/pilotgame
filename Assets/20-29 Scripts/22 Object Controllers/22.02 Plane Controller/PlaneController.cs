@@ -1,11 +1,8 @@
-using System.Data.Common;
-using System.Xml.Serialization;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class PlaneController : MonoBehaviour
 {
-    [SerializeField] PlaneObject plane;
+    [SerializeField] PlaneStats plane;
     [SerializeField] LiveGameData liveData;
 
     float rollAngle, pitchAngle, turnAngle = 0.0f;
@@ -18,7 +15,6 @@ public class PlaneController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        liveData.fuel = plane.GetFuelMax();
         rollAngle = transform.eulerAngles.z;
         pitchAngle = transform.eulerAngles.x;
         turnAngle = transform.eulerAngles.y;
@@ -31,7 +27,7 @@ public class PlaneController : MonoBehaviour
     {
         if (liveData.throttleActionValue != 0)
         {
-            liveData.throttle += plane.GetAcceleration() * liveData.throttleActionValue;
+            liveData.throttle += plane.accelerationForce * liveData.throttleActionValue;
             liveData.throttle = Mathf.Clamp(liveData.throttle, 0f, 100f);
         }
         if (liveData.turn != 0)
@@ -43,7 +39,7 @@ public class PlaneController : MonoBehaviour
     void SetResponseModifier()
     {
         print(responseModifier);
-        responseModifier = plane.GetResponsiveness() / plane.GetTotalWeight(liveData.fuel);
+        responseModifier = plane.turnResponsiveness / plane.GetTotalWeight(liveData.fuel);
 
     }
 
@@ -62,9 +58,9 @@ public class PlaneController : MonoBehaviour
         liveData.planeStalling = (liveData.fuel <= 0 || liveData.throttle == 0) && liveData.distanceToGround >= 10.0;
 
         if (liveData.planeStalling)
-            liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.GetStallMinimum(), Time.deltaTime * plane.GetStallBurnRate());
+            liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.minimumStallThrust, Time.deltaTime * plane.stallThrustBurnRate);
         else
-            liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.GetThrustMaximum() * liveData.throttle * 3f, Time.deltaTime * 3);
+            liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.thrustMaximum * liveData.throttle * 3f, Time.deltaTime * 3);
 
 
         // Modify Altitude
@@ -119,7 +115,7 @@ public class PlaneController : MonoBehaviour
 
         if (!liveData.planeStalling)
         {
-            rb.AddForce(liveData.throttle * plane.GetThrustMaximum() * transform.forward);
+            rb.AddForce(liveData.throttle * plane.thrustMaximum * transform.forward);
         }
          else
             rb.AddForce(transform.forward * liveData.currentStallThrust);
@@ -130,7 +126,7 @@ public class PlaneController : MonoBehaviour
 
         //upforce and gravity only when you're either taking off or landing.
         if (IsTakingOff())
-            rb.AddForce(plane.getLift() * rb.linearVelocity.magnitude * Vector3.up);
+            rb.AddForce(plane.uplift * rb.linearVelocity.magnitude * Vector3.up);
         
         rb.useGravity = SetGravity();
     }

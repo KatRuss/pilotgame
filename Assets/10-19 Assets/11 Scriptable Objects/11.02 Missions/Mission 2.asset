@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d20cf1efaa8d44c29f27bbb8c2ab42b, type: 3}
+  m_Name: Mission 2
+  m_EditorClassIdentifier: Assembly-CSharp::Mission
+  menuName: Low Flight Training
+  menuDescription: Hope you enjoyed your small tour. Now you're going to really learn
+    about the people here!
+  missionPrefab: {fileID: 2615298459097881261, guid: 0ffef08bc1cbe464296a43c7e288bdf6, type: 3}
+  timeOfDay: -5
+  startingThrottle: 0
+  startingFuel: 100
+  primaryObjectives:
+  - {fileID: 11400000, guid: df681cc89b2d846caba526153e874a7e, type: 2}
+  secondaryObjectives:
+  - {fileID: 11400000, guid: 49d87ac891e5c4ad787703788d3eb739, type: 2}
+  - {fileID: 11400000, guid: cfb758981cbff43de9f7d7fced7af955, type: 2}
+  - {fileID: 11400000, guid: 4de770d02580341a495c7cf03ddb6d7d, type: 2}
+  primaryObjectiveCompleted: 000000
+  secondayObjectivesCompleted: 000000
+  DEBUG_AUTO_COMPLETE: 0
+  DEBUG_AUTO_RESET: 1

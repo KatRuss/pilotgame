@@ -12,26 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e735dee2f33e24a0ba3e5695683b49a4, type: 3}
   m_Name: LiveGameData
   m_EditorClassIdentifier: Assembly-CSharp::LiveData
-  playerPlane: {fileID: 11400000, guid: 0c9bedd9dceb84b8ba5335c1f024798d, type: 2}
+  playerPlane: {fileID: 11400000, guid: 07c66806f41954d8dad836f3c3df64c8, type: 2}
   playerActive: 1
   throttle: 0
   turn: 0
   pitch: 0
   throttleActionValue: 0
-  currentWeight: 346.2887
-  distanceToGround: 2.072309
-  altitude: 26.931171
-  fuel: 92.576805
-  currentStallThrust: 400
+  currentWeight: 0
+  distanceToGround: 0
+  altitude: 0
+  fuel: 0
+  currentStallThrust: 0
   planeStalling: 0
-  activeMission: {fileID: 11400000, guid: cc7079d7052dc48d38af9b8cb434d8ef, type: 2}
+  activeMission: {fileID: 0}
   missionComplete: 0
   missionFailed: 0
-  timer: 26.503798
+  timer: 0
   ringsPassed: 0
   GoldStarCollected: 0
   skydiversDropped: 0
-  timeSpentTurning: 2.219838
+  timeSpentTurning: 0
   gameIsPaused: 0
   debugOn: 0
   merits: 0

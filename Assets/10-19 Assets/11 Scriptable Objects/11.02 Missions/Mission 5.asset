@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d20cf1efaa8d44c29f27bbb8c2ab42b, type: 3}
+  m_Name: Mission 5
+  m_EditorClassIdentifier: Assembly-CSharp::Mission
+  menuName: 
+  menuDescription: 
+  missionPrefab: {fileID: 0}
+  timeOfDay: -12
+  startingThrottle: 0
+  primaryObjectives: []
+  secondaryObjectives: []
+  primaryObjectiveCompleted: 000000
+  secondayObjectivesCompleted: 000000
+  secondaryObjectivesFailed: 000000
+  DEBUG_AUTO_COMPLETE: 0
+  DEBUG_AUTO_RESET: 0
