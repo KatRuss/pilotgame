@@ -14,8 +14,6 @@ public class MissionController : MonoBehaviour
 
     void Start()
     {
-        //liveData.throttle = liveData.activeMission.startingThrottle;
-
         SetUpLevel();
     }
 
@@ -75,9 +73,9 @@ public class MissionController : MonoBehaviour
                 liveData.missionFailed = true;
             }
 
-            if (IsMissionComplete()){ liveData.missionComplete = true; }
+            if (IsMissionComplete())
+                liveData.missionComplete = true;
         }
-
     }
 
     void SecondaryMissionCheck()
@@ -85,9 +83,7 @@ public class MissionController : MonoBehaviour
         for (int i = 0; i < liveData.activeMission.secondaryObjectives.Length; i++)
         {
             if (liveData.activeMission.secondaryObjectives[i].IsObjectiveComplete(liveData))
-            {
                 liveData.activeMission.secondayObjectivesCompleted[i] = true;
-            }
         }
     }
 
@@ -97,9 +93,7 @@ public class MissionController : MonoBehaviour
         foreach (Objective pObjective in liveData.activeMission.primaryObjectives)
         {
             if (pObjective.IsObjectiveFailed(liveData))
-            {
                 return true;
-            }
         }
         return false;
     }

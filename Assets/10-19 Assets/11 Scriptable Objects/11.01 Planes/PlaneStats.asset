@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cceb0ece55845139e5993c004e817d, type: 3}
   m_Name: PlaneStats
   m_EditorClassIdentifier: Assembly-CSharp::PlaneStats
-  weight: 250
-  turnResponsiveness: 80000
-  uplift: 150
+  weight: 500
+  turnResponsiveness: 25000
+  uplift: 300
   minimumStallThrust: 4000
   stallThrustBurnRate: 0.2
-  thrustMaximum: 500
+  thrustMaximum: 700
   accelerationForce: 250
   decelerationForce: 250
   fuelBurnRate: 0.25
-  fuelBurnThrottleRate: 0.05
+  fuelBurnThrottleRate: 0.005
   fuelWeightPerLitre: 1.5

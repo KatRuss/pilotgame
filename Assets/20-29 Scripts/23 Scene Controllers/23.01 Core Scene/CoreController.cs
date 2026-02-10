@@ -51,9 +51,7 @@ public class CoreController : MonoBehaviour
         foreach (string scene in sceneList)
         {
             if (SceneManager.GetSceneByName(scene).IsValid())
-            {
                 SceneManager.UnloadSceneAsync(scene);
-            }
         }
     }
 

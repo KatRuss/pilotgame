@@ -12,7 +12,7 @@ public class SunLightingController : MonoBehaviour
         float[] timesOfDay = { -12, -5, 20, 80};
         float time = timesOfDay[Random.Range(0, timesOfDay.Length)];
 
-        if (liveData.activeMission is null)
+        if (liveData.activeMission == null)
         {
             transform.Rotate(new Vector3(time, 0, 0));
         }

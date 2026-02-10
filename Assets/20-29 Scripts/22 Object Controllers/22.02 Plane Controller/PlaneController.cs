@@ -18,9 +18,6 @@ public class PlaneController : MonoBehaviour
         rollAngle = transform.eulerAngles.z;
         pitchAngle = transform.eulerAngles.x;
         turnAngle = transform.eulerAngles.y;
-
-        // Forces the game to set the weight of the plane before physics, so it dosen't fly into space
-        //rb.mass = 300;
     }
 
     void HandleThrottle()
@@ -40,7 +37,6 @@ public class PlaneController : MonoBehaviour
     {
         print(responseModifier);
         responseModifier = plane.turnResponsiveness / plane.GetTotalWeight(liveData.fuel);
-
     }
 
     void Update()
@@ -61,7 +57,6 @@ public class PlaneController : MonoBehaviour
             liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.minimumStallThrust, Time.deltaTime * plane.stallThrustBurnRate);
         else
             liveData.currentStallThrust = Mathf.Lerp(liveData.currentStallThrust, plane.thrustMaximum * liveData.throttle * 3f, Time.deltaTime * 3);
-
 
         // Modify Altitude
         liveData.altitude = transform.position.y;
@@ -112,17 +107,15 @@ public class PlaneController : MonoBehaviour
             liveData.distanceToGround = groundHit.distance;
         }
 
-
         if (!liveData.planeStalling)
         {
             rb.AddForce(liveData.throttle * plane.thrustMaximum * transform.forward);
         }
-         else
+        else
             rb.AddForce(transform.forward * liveData.currentStallThrust);
 
         if (liveData.distanceToGround > 3)
             transform.rotation = CalculatePlaneAngles();
-
 
         //upforce and gravity only when you're either taking off or landing.
         if (IsTakingOff())

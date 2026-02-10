@@ -27,9 +27,7 @@ public class PlayerInput : MonoBehaviour
     void HandleNonGameplayInput()
     {
         if (debugAction.WasPressedThisFrame())
-        {
             liveData.debugOn = !liveData.debugOn;
-        }
     }
 
     void HandleInGameInput()
@@ -39,8 +37,6 @@ public class PlayerInput : MonoBehaviour
         liveData.turn = turnAction.ReadValue<float>();
         liveData.throttleActionValue = throttleAction.ReadValue<float>();
         if (pauseAction.WasPressedThisFrame())
-        {
             liveData.gameIsPaused = !liveData.gameIsPaused;
-        }
     }
 }

@@ -10,9 +10,7 @@ public class GoldStarController : MonoBehaviour
         GameObject star = GameObject.Find("GoldStar");
         // Only one gold star is allowed in a level at a time.
         if (star != gameObject)
-        {
             Destroy(gameObject);
-        }
     }
 
     void OnTriggerEnter(Collider other)

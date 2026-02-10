@@ -26,8 +26,6 @@ public class CameraController : MonoBehaviour
     {
         povs.Add(pov);
         if (moveToPov)
-        {
             index = povs.Count - 1;
-        }
     }
 }
